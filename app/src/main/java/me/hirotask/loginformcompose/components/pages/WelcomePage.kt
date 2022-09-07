@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import me.hirotask.loginformcompose.components.atoms.GoogleLoginButton
+import me.hirotask.loginformcompose.components.atoms.NormalButton
 
 @Composable
 fun WelcomePage() {
@@ -19,6 +19,7 @@ fun WelcomePage() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        GoogleLoginButton{}
+        NormalButton("Emailでログイン") {}
+        NormalButton("Googleでログイン") {}
     }
 }
