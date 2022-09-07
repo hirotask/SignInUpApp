@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import me.hirotask.loginformcompose.components.pages.LoginForm
+import me.hirotask.loginformcompose.components.pages.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginForm()
+                    WelcomePage()
                 }
             }
         }
