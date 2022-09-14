@@ -17,7 +17,6 @@ fun PasswordTextField(
     value: String,
     modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit,
-    submit: () -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
     OutlinedTextField(
@@ -31,7 +30,6 @@ fun PasswordTextField(
         keyboardActions = KeyboardActions(
             onDone = {
                 focusManager.clearFocus()
-                submit()
             }
         ),
         visualTransformation = PasswordVisualTransformation(),
