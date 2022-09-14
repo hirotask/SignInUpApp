@@ -16,8 +16,9 @@ fun WelcomePage() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
+
     ) {
         NormalButton("Emailでログイン") {}
         NormalButton("Googleでログイン") {}
