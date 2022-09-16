@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "59093459737",
+    "project_id": "signinup-app",
+    "storage_bucket": "signinup-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59093459737:android:425370f095c44c6d9fdb88",
+        "android_client_info": {
+          "package_name": "me.hirotask.loginformcompose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59093459737-0vbuet34bcq5js42pdhraus1gto4ikvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvlOoXzjOjG_gVswDbuiNL6iOCp1-UweQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59093459737-0vbuet34bcq5js42pdhraus1gto4ikvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
