@@ -6,11 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import me.hirotask.loginformcompose.components.pages.LoginForm
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import me.hirotask.loginformcompose.components.pages.LoginPage
 import me.hirotask.loginformcompose.components.pages.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
@@ -19,13 +20,26 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoginFormComposeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    WelcomePage()
-                }
+
+                MyApp()
+
+            }
+        }
+    }
+}
+
+@Composable
+fun MyApp() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = Routing.Welcome.destination) {
+        composable(Routing.Welcome.destination) {
+            WelcomePage {
+                navController.navigate(Routing.Login.destination)
+            }
+        }
+        composable(Routing.Login.destination) {
+            LoginPage {
+                navController.navigateUp()
             }
         }
     }

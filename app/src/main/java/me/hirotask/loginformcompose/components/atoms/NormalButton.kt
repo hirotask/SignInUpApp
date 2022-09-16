@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 fun NormalButton(
     text: String,
     modifier: Modifier = Modifier,
-    submit: () -> Unit,
+    onClick: () -> Unit,
 ) {
     Button(
-        onClick = submit, enabled = true, modifier = modifier
+        onClick = onClick, enabled = true, modifier = modifier
     ) {
         Text(text)
     }

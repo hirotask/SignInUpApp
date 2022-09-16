@@ -19,7 +19,9 @@ import me.hirotask.loginformcompose.components.atoms.SignInButton
 import me.hirotask.loginformcompose.firebase.FirebaseConf
 
 @Composable
-fun LoginForm() {
+fun LoginPage(
+    onClickHandler: () -> Unit = {}
+) {
     var ajax by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -109,7 +111,7 @@ fun PreviewLoginForm() {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        LoginForm()
+        LoginPage()
     }
 }
 
