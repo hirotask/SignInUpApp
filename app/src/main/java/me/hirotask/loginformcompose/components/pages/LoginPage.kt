@@ -1,6 +1,5 @@
 package me.hirotask.loginformcompose.components.pages
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface

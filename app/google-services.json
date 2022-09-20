@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "59093459737-8r38n18fdf09iqjgiu4bbj3hbfpvda5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.hirotask.loginformcompose",
+            "certificate_hash": "2ff67eeb74424bc186dcce18f47705afffcd23d1"
+          }
+        },
+        {
           "client_id": "59093459737-0vbuet34bcq5js42pdhraus1gto4ikvh.apps.googleusercontent.com",
           "client_type": 3
         }
