@@ -55,19 +55,19 @@ fun LoginPage(
                     if(it.isSuccessful) {
                         Toast.makeText(context,"新規登録に成功しました",Toast.LENGTH_LONG).show()
                     } else {
-                        Toast.makeText(context,"新規登録に成功しました",Toast.LENGTH_LONG).show()
+                        Toast.makeText(context,"新規登録に失敗しました",Toast.LENGTH_LONG).show()
                     }
                 }
 
-            firebaseConf.auth.signInWithEmailAndPassword(
-                email,password
-            ).addOnCompleteListener {
-                if(it.isSuccessful) {
-                    Toast.makeText(context,"ログインに成功しました",Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
-                }
-            }
+//            firebaseConf.auth.signInWithEmailAndPassword(
+//                email,password
+//            ).addOnCompleteListener {
+//                if(it.isSuccessful) {
+//                    Toast.makeText(context,"ログインに成功しました",Toast.LENGTH_LONG).show()
+//                } else {
+//                    Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
+//                }
+//            }
 
             ajax = false
         }
@@ -94,6 +94,7 @@ fun LoginPage(
                 .fillMaxWidth()
                 .height(56.dp), LoginSubmit
         )
+        Spacer(Modifier.height(6.dp))
         SignInButton(
             ajax,
             Modifier
@@ -104,7 +105,7 @@ fun LoginPage(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewLoginForm() {
     Surface(
