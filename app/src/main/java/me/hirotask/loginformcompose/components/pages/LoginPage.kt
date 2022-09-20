@@ -32,16 +32,7 @@ fun LoginPage(
         scope.launch(Dispatchers.IO) {
             ajax = true
             //ログイン処理
-            firebaseConf.auth.signInWithEmailAndPassword(
-                email,password
-            ).addOnCompleteListener {
-                if(it.isSuccessful) {
-                    Toast.makeText(context,"ログインに成功しました",Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
-                }
-            }
-
+            firebaseConf.login(email,password,context)
             ajax = false
         }
         Unit
@@ -50,24 +41,9 @@ fun LoginPage(
         scope.launch(Dispatchers.IO) {
             ajax = true
             //新規登録処理
-            firebaseConf.auth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener {
-                    if(it.isSuccessful) {
-                        Toast.makeText(context,"新規登録に成功しました",Toast.LENGTH_LONG).show()
-                    } else {
-                        Toast.makeText(context,"新規登録に失敗しました",Toast.LENGTH_LONG).show()
-                    }
-                }
+            firebaseConf.signup(email, password, context)
 
-//            firebaseConf.auth.signInWithEmailAndPassword(
-//                email,password
-//            ).addOnCompleteListener {
-//                if(it.isSuccessful) {
-//                    Toast.makeText(context,"ログインに成功しました",Toast.LENGTH_LONG).show()
-//                } else {
-//                    Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
-//                }
-//            }
+            firebaseConf.login(email, password, context)
 
             ajax = false
         }
