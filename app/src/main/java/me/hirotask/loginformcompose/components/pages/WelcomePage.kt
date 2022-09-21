@@ -22,6 +22,6 @@ fun WelcomePage(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NormalButton("Emailでログイン", onClick = onClickHandler)
+        NormalButton(text = "Emailでログイン", onClick = onClickHandler)
     }
 }
