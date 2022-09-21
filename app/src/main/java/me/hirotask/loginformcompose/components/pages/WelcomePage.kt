@@ -8,14 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import me.hirotask.loginformcompose.components.atoms.NormalButton
 
 @Composable
 fun WelcomePage(
     onClickHandler: () -> Unit = {}
 ) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -23,8 +22,6 @@ fun WelcomePage(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-
         NormalButton("Emailでログイン", onClick = onClickHandler)
-        NormalButton("Googleでログイン") {}
     }
 }

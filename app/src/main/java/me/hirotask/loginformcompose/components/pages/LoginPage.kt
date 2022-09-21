@@ -31,7 +31,7 @@ fun LoginPage(
         scope.launch(Dispatchers.IO) {
             ajax = true
             //ログイン処理
-            firebaseConf.login(email,password,context)
+            firebaseConf.signin(email,password,context)
             ajax = false
         }
         Unit
@@ -42,7 +42,7 @@ fun LoginPage(
             //新規登録処理
             firebaseConf.signup(email, password, context)
 
-            firebaseConf.login(email, password, context)
+            firebaseConf.signin(email, password, context)
 
             ajax = false
         }

@@ -2,19 +2,16 @@ package me.hirotask.loginformcompose.firebase
 
 import android.content.Context
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-data class FirebaseConf(
-    val auth: FirebaseAuth = Firebase.auth
-) {
-    suspend fun login(email: String, password: String, context: Context) =
+class FirebaseConf {
+
+    suspend fun signin(email: String, password: String, context: Context) =
         withContext(Dispatchers.IO) {
-            auth.signInWithEmailAndPassword(
+            Firebase.auth.signInWithEmailAndPassword(
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -27,7 +24,7 @@ data class FirebaseConf(
 
     suspend fun signup(email: String, password: String, context: Context) =
         withContext(Dispatchers.IO) {
-            auth.createUserWithEmailAndPassword(
+            Firebase.auth.createUserWithEmailAndPassword(
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -37,6 +34,4 @@ data class FirebaseConf(
                 }
             }
         }
-
-
 }
