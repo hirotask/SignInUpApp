@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import me.hirotask.loginformcompose.components.pages.CalendarPage
 import me.hirotask.loginformcompose.components.pages.LoginPage
 import me.hirotask.loginformcompose.components.pages.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
@@ -38,9 +39,15 @@ fun MyApp() {
             }
         }
         composable(Routing.Login.destination) {
-            LoginPage {
-                navController.navigateUp()
-            }
+            LoginPage(
+                onPreviousHandler = { navController.navigateUp() },
+                onSignInHandler = { navController.navigate(Routing.Calendar.destination) }
+            )
+        }
+        composable(Routing.Calendar.destination) {
+            CalendarPage(
+
+            )
         }
     }
 }

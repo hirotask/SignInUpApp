@@ -21,7 +21,8 @@ import me.hirotask.loginformcompose.firebase.FirebaseConf
 
 @Composable
 fun LoginPage(
-    onClickHandler: () -> Unit = {}
+    onPreviousHandler: () -> Unit = {},
+    onSignInHandler: () -> Unit = {},
 ) {
     var ajax by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
@@ -33,7 +34,8 @@ fun LoginPage(
         scope.launch(Dispatchers.IO) {
             ajax = true
             //ログイン処理
-            firebaseConf.signin(email,password,context)
+            firebaseConf.signin(email,password,context, onComplete = onSignInHandler)
+
             ajax = false
         }
         Unit
@@ -44,11 +46,10 @@ fun LoginPage(
             //新規登録処理
             firebaseConf.signup(email, password, context)
 
-            firebaseConf.signin(email, password, context)
+            firebaseConf.signin(email, password, context, onComplete = onSignInHandler)
 
             ajax = false
         }
-
         Unit
     }
 
@@ -60,7 +61,7 @@ fun LoginPage(
         Icon(
             painter = rememberVectorPainter(image = Icons.Default.ArrowBack),
             contentDescription = null,
-            modifier = Modifier.padding(16.dp).size(32.dp).clickable(onClick = onClickHandler)
+            modifier = Modifier.padding(16.dp).size(32.dp).clickable(onClick = onPreviousHandler)
         )
         Column(
             modifier = Modifier
