@@ -40,4 +40,8 @@ class FirebaseConf {
             }
         }
 
+    fun signout() {
+        Firebase.auth.signOut()
+    }
+
 }

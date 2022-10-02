@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import me.hirotask.loginformcompose.components.pages.CalendarPage
 import me.hirotask.loginformcompose.components.pages.LoginPage
 import me.hirotask.loginformcompose.components.pages.WelcomePage
+import me.hirotask.loginformcompose.firebase.FirebaseConf
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,12 +41,16 @@ fun MyApp() {
         }
         composable(Routing.Login.destination) {
             LoginPage(
-                onPreviousHandler = { navController.navigateUp() },
+                onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
                 onSignInHandler = { navController.navigate(Routing.Calendar.destination) }
             )
         }
         composable(Routing.Calendar.destination) {
             CalendarPage(
+                drawerContent1Action = { navController.navigate(Routing.Login.destination) },
+                drawerContent2Action = {
+                    navController.navigate(Routing.Login.destination)
+                }
 
             )
         }

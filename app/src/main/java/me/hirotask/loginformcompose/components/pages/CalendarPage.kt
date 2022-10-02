@@ -13,17 +13,31 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.components.atoms.DrawerText
 import me.hirotask.loginformcompose.components.organisms.StaticCalendar
+import me.hirotask.loginformcompose.firebase.FirebaseConf
 
 @Composable
-fun CalendarPage() {
+fun CalendarPage(
+    drawerContent1Action: () -> Unit = {},
+    drawerContent2Action: () -> Unit = {},
+
+    ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
     Scaffold (
         scaffoldState = scaffoldState,
         drawerContent = {
-            DrawerText(icon = Icons.Default.Settings,text = "設定")
-            DrawerText(icon = Icons.Default.Home, text = "ログアウト")
+            DrawerText(icon = Icons.Default.Settings,text = "設定", action = drawerContent1Action)
+            DrawerText(icon = Icons.Default.Home, text = "ログアウト") {
+                val firebaseConf = FirebaseConf()
+                firebaseConf.signout()
+
+                scope.launch {
+                    scaffoldState.snackbarHostState.showSnackbar("ログアウトしました")
+                }
+
+                drawerContent2Action()
+            }
         },
         topBar = {
             TopAppBar (
