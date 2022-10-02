@@ -33,6 +33,6 @@ fun PasswordTextField(
             }
         ),
         visualTransformation = PasswordVisualTransformation(),
-        label = { Text("メールアドレス") },
+        label = { Text("パスワード") },
     )
 }
