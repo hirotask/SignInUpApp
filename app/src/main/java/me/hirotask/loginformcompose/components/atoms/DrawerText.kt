@@ -1,5 +1,6 @@
 package me.hirotask.loginformcompose.components.atoms
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
@@ -15,9 +16,13 @@ import androidx.compose.ui.unit.dp
 fun DrawerText(
     icon: ImageVector,
     iconDescription: String = "",
-    text: String
+    text: String,
+    action: () -> Unit = {}
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable(onClick = action)
+    ) {
         Icon(icon, iconDescription)
         Text(text, modifier = Modifier.padding(16.dp))
     }
