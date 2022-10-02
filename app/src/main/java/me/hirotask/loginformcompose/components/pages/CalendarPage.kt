@@ -33,10 +33,11 @@ fun CalendarPage(
                 firebaseConf.signout()
 
                 scope.launch {
+                    scaffoldState.drawerState.apply { if(isOpen) close() }
                     scaffoldState.snackbarHostState.showSnackbar("ログアウトしました")
-                }
 
-                drawerContent2Action()
+                    drawerContent2Action()
+                }
             }
         },
         topBar = {
