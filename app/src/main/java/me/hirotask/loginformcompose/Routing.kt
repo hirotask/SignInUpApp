@@ -3,5 +3,6 @@ package me.hirotask.loginformcompose
 enum class Routing(val destination: String) {
     Welcome("welcomepage"),
     Login("loginpage"),
-    Calendar("calendarpage")
+    Todo("Todopage"),
+    TodoAdd("TodoAddpage")
 }

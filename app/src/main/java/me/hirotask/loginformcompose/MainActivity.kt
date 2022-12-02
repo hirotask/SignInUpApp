@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import me.hirotask.loginformcompose.ui.CalendarPage
 import me.hirotask.loginformcompose.ui.LoginPage
+import me.hirotask.loginformcompose.ui.TodoPage
 import me.hirotask.loginformcompose.ui.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
@@ -37,14 +37,19 @@ fun MyApp() {
         composable(Routing.Login.destination) {
             LoginPage(
                 onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
-                onSignInHandler = { navController.navigate(Routing.Calendar.destination) }
+                onSignInHandler = { navController.navigate(Routing.Todo.destination) }
             )
         }
-        composable(Routing.Calendar.destination) {
-            CalendarPage(
-                drawerContent1Action = { navController.navigate(Routing.Login.destination) },
-                drawerContent2Action = {
+        composable(Routing.Todo.destination) {
+            TodoPage(
+                toSetting = {
                     navController.navigate(Routing.Login.destination)
+                },
+                toLogin = {
+                    navController.navigate(Routing.Login.destination)
+                },
+                toAdd = {
+                    navController.navigate(Routing.TodoAdd.destination)
                 }
 
             )
