@@ -1,16 +1,16 @@
 package me.hirotask.loginformcompose.ui
 
 import android.app.DatePickerDialog
-import android.os.Build
 import android.widget.DatePicker
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -25,7 +25,6 @@ import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.util.Priority
 import java.util.*
 
-@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun TodoAddPage(
     toTodo: () -> Unit = {},
@@ -189,7 +188,6 @@ fun TodoAddPage(
 }
 
 
-@RequiresApi(Build.VERSION_CODES.N)
 @Preview(showSystemUi = true)
 @Composable
 fun TodoAddPagePreview() {
