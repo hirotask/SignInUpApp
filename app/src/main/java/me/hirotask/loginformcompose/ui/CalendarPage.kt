@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.ui.components.pages
+package me.hirotask.loginformcompose.ui
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -8,8 +8,8 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.ui.components.atoms.DrawerText
-import me.hirotask.loginformcompose.ui.components.organisms.StaticCalendar
+import me.hirotask.loginformcompose.ui.components.DrawerText
+import me.hirotask.loginformcompose.ui.components.StaticCalendar
 import me.hirotask.loginformcompose.firebase.FirebaseConf
 
 @Composable

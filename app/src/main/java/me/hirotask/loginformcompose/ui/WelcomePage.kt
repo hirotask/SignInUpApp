@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.ui.components.pages
+package me.hirotask.loginformcompose.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import me.hirotask.loginformcompose.ui.components.atoms.NormalButton
+import me.hirotask.loginformcompose.ui.components.NormalButton
 
 @Composable
 fun WelcomePage(

@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.ui.components.pages
+package me.hirotask.loginformcompose.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

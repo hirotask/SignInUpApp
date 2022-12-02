@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import me.hirotask.loginformcompose.ui.components.pages.CalendarPage
-import me.hirotask.loginformcompose.ui.components.pages.LoginPage
-import me.hirotask.loginformcompose.ui.components.pages.WelcomePage
+import me.hirotask.loginformcompose.ui.CalendarPage
+import me.hirotask.loginformcompose.ui.LoginPage
+import me.hirotask.loginformcompose.ui.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
 class MainActivity : ComponentActivity() {

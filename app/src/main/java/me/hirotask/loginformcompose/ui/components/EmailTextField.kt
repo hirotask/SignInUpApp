@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.ui.components.atoms
+package me.hirotask.loginformcompose.ui.components
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
