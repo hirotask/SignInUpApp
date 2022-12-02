@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.components.atoms
+package me.hirotask.loginformcompose.ui.components.atoms
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -10,10 +10,9 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 
 @Composable
-fun PasswordTextField(
+fun EmailTextField(
     value: String,
     modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit,
@@ -24,15 +23,14 @@ fun PasswordTextField(
         onValueChange = onValueChange,
         modifier = modifier,
         keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Password,
-            imeAction = ImeAction.Done,
+            keyboardType = KeyboardType.Email,
+            imeAction = ImeAction.Next,
         ),
         keyboardActions = KeyboardActions(
-            onDone = {
-                focusManager.clearFocus()
+            onNext = {
+                focusManager.moveFocus(FocusDirection.Down)
             }
         ),
-        visualTransformation = PasswordVisualTransformation(),
-        label = { Text("パスワード") },
+        label = { Text("メールアドレス") },
     )
 }

@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.components.atoms
+package me.hirotask.loginformcompose.ui.components.atoms
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button

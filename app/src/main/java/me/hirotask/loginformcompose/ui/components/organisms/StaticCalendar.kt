@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.components.organisms
+package me.hirotask.loginformcompose.ui.components.organisms
 
 import android.widget.CalendarView
 import androidx.compose.foundation.layout.fillMaxSize

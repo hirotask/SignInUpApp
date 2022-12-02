@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.components.pages
+package me.hirotask.loginformcompose.ui.components.pages
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,8 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.components.atoms.*
 import me.hirotask.loginformcompose.firebase.FirebaseConf
+import me.hirotask.loginformcompose.ui.components.atoms.EmailTextField
+import me.hirotask.loginformcompose.ui.components.atoms.NormalButton
+import me.hirotask.loginformcompose.ui.components.atoms.PasswordTextField
 
 @Composable
 fun LoginPage(

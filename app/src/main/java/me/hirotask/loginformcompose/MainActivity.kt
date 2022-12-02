@@ -3,18 +3,13 @@ package me.hirotask.loginformcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import me.hirotask.loginformcompose.components.pages.CalendarPage
-import me.hirotask.loginformcompose.components.pages.LoginPage
-import me.hirotask.loginformcompose.components.pages.WelcomePage
-import me.hirotask.loginformcompose.firebase.FirebaseConf
+import me.hirotask.loginformcompose.ui.components.pages.CalendarPage
+import me.hirotask.loginformcompose.ui.components.pages.LoginPage
+import me.hirotask.loginformcompose.ui.components.pages.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
 class MainActivity : ComponentActivity() {
