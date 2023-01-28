@@ -166,7 +166,7 @@ fun TodoAddPage(
             OutlinedTextField(
                 value = memo,
                 onValueChange = { memo = it },
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxWidth().height(200.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next,
@@ -180,7 +180,9 @@ fun TodoAddPage(
 
             Spacer(Modifier.height(4.dp))
 
-            Button(onClick = { /*TODO*/ }) {
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { /*TODO*/ }) {
                 Text("追加する")
             }
         }

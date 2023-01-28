@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.firebase.FirebaseConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseConf
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 

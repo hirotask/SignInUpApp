@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.firebase.FirebaseConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseConf
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.components.PasswordTextField

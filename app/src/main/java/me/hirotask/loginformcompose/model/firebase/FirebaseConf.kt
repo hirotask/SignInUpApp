@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.firebase
+package me.hirotask.loginformcompose.model.firebase
 
 import android.content.Context
 import android.widget.Toast

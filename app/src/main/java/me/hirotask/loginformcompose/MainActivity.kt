@@ -38,7 +38,10 @@ fun MyApp() {
         composable(Routing.Login.destination) {
             LoginPage(
                 onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
-                onSignInHandler = { navController.navigate(Routing.Todo.destination) }
+                onSignInHandler = {
+
+                    navController.navigate(Routing.Todo.destination)
+                }
             )
         }
         composable(Routing.Todo.destination) {
