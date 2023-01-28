@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.model.SpConf
 import me.hirotask.loginformcompose.model.firebase.FirebaseConf
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
@@ -30,19 +31,22 @@ fun LoginPage(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     val context = LocalContext.current
+    val spConf = SpConf(context)
     val scope = rememberCoroutineScope()
     val firebaseConf = FirebaseConf()
     val LoginSubmit = {
         scope.launch(Dispatchers.IO) {
             ajax = true
             //ログイン処理
-            firebaseConf.signin(email,password,context, onComplete = onSignInHandler)
+            firebaseConf.signin(email, password, context, onComplete = onSignInHandler)
+
+            spConf.saveAccountSession(email, password)
 
             ajax = false
         }
         Unit
     }
-    val SigninSubmit = {
+    val SignUpSubmit = {
         scope.launch(Dispatchers.IO) {
             ajax = true
             //新規登録処理
@@ -63,7 +67,10 @@ fun LoginPage(
         Icon(
             painter = rememberVectorPainter(image = Icons.Default.ArrowBack),
             contentDescription = null,
-            modifier = Modifier.padding(16.dp).size(32.dp).clickable(onClick = onPreviousHandler)
+            modifier = Modifier
+                .padding(16.dp)
+                .size(32.dp)
+                .clickable(onClick = onPreviousHandler)
         )
         Column(
             modifier = Modifier
@@ -84,7 +91,8 @@ fun LoginPage(
                 ajax,
                 Modifier
                     .fillMaxWidth()
-                    .height(56.dp), LoginSubmit
+                    .height(56.dp),
+                LoginSubmit
             )
             Spacer(Modifier.height(6.dp))
             NormalButton(
@@ -93,12 +101,13 @@ fun LoginPage(
                 Modifier
                     .fillMaxWidth()
                     .height(56.dp),
-                SigninSubmit
+                SignUpSubmit
             )
         }
     }
-
 }
+
+
 
 @Preview(showBackground = true)
 @Composable

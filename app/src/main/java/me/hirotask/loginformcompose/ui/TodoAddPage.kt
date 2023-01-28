@@ -28,6 +28,7 @@ import java.util.*
 @Composable
 fun TodoAddPage(
     toTodo: () -> Unit = {},
+    onAddTodo: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
@@ -166,7 +167,7 @@ fun TodoAddPage(
             OutlinedTextField(
                 value = memo,
                 onValueChange = { memo = it },
-                modifier = Modifier.fillMaxWidth().height(200.dp),
+                modifier = Modifier.fillMaxWidth().height(150.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next,
@@ -182,7 +183,7 @@ fun TodoAddPage(
 
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { /*TODO*/ }) {
+                onClick = onAddTodo) {
                 Text("追加する")
             }
         }

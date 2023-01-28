@@ -11,8 +11,8 @@ import javax.crypto.spec.SecretKeySpec
 /**
  * SharedPreferencesを扱うクラス
  */
-class SpConf {
-    suspend fun saveAccountSession(email: String, password: String, context: Context) =
+class SpConf(private val context: Context) {
+    suspend fun saveAccountSession(email: String, password: String) =
         withContext(Dispatchers.IO) {
             val prefData = context.getSharedPreferences("account", MODE_PRIVATE)
             val editor = prefData.edit();
@@ -32,7 +32,17 @@ class SpConf {
             editor.commit()
         }
 
-    fun getSavedAccountSession(context: Context): Pair<String, String> {
+    fun deleteAccountSession() {
+        val prefData = context.getSharedPreferences("account", MODE_PRIVATE)
+        val editor = prefData.edit();
+
+        editor.remove("email")
+        editor.remove("pass")
+
+        editor.apply()
+    }
+
+    fun getSavedAccountSession(): Pair<String, String> {
         val prefData = context.getSharedPreferences("account", MODE_PRIVATE)
         val email = prefData.getString("email", "")
         val rawPass = prefData.getString("pass", "")
@@ -58,5 +68,10 @@ class SpConf {
         }
 
         return Pair("","")
+    }
+
+    fun isSignIn() : Boolean {
+        val accountSession = getSavedAccountSession()
+        return accountSession.first.isNotEmpty() && accountSession.second.isNotEmpty()
     }
 }

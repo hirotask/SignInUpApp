@@ -8,8 +8,10 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.model.SpConf
 import me.hirotask.loginformcompose.model.firebase.FirebaseConf
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
@@ -22,6 +24,7 @@ fun TodoPage(
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -29,7 +32,10 @@ fun TodoPage(
             DrawerText(icon = Icons.Default.Settings, text = "設定", action = toSetting)
             DrawerText(icon = Icons.Default.Home, text = "ログアウト") {
                 val firebaseConf = FirebaseConf()
+                val spConf = SpConf(context)
                 firebaseConf.signout()
+                spConf.deleteAccountSession()
+
 
                 scope.launch {
                     scaffoldState.drawerState.apply { if (isOpen) close() }
