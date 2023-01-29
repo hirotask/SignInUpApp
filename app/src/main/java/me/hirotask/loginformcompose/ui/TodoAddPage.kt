@@ -205,7 +205,7 @@ fun TodoAddPage(
                             firestoreConf.addTodo(
                                 uid, Todo.create(
                                     content = title,
-                                    priority = Priority.valueOf(priority),
+                                    priority = priority,
                                     limit = date.toDate()!!,
                                     memo = memo
                                 )

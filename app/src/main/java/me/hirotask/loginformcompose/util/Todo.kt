@@ -6,12 +6,12 @@ data class Todo(
     val id: String,
     val time: Long,
     val content: String,
-    val priority: Priority,
+    val priority: String,
     val limit: Date,
     val memo: String
 ) {
     companion object {
-        fun create(content: String, priority: Priority, limit: Date, memo: String) =
+        fun create(content: String, priority: String, limit: Date, memo: String) =
             Todo(UUID.randomUUID().toString(), Date().time, content, priority, limit, memo)
     }
 }
