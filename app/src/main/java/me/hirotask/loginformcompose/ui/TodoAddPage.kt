@@ -21,8 +21,15 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
+import me.hirotask.loginformcompose.model.firebase.FirestoreConf
+import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.util.Priority
+import me.hirotask.loginformcompose.util.Todo
+import java.text.DateFormat
 import java.util.*
 
 @Composable
@@ -47,13 +54,15 @@ fun TodoAddPage(
 
     val datePickerDialog = DatePickerDialog(
         context,
-        { _: DatePicker, myear: Int, mmonth: Int, mday:Int ->
+        { _: DatePicker, myear: Int, mmonth: Int, mday: Int ->
             date = "$myear/$mmonth/$mday"
         },
         year,
         month,
         day
     )
+
+    val scope = rememberCoroutineScope()
 
 
     Scaffold(
@@ -167,7 +176,9 @@ fun TodoAddPage(
             OutlinedTextField(
                 value = memo,
                 onValueChange = { memo = it },
-                modifier = Modifier.fillMaxWidth().height(150.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(150.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next,
@@ -183,12 +194,34 @@ fun TodoAddPage(
 
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = onAddTodo) {
+                onClick = {
+                    val firestoreConf = FirestoreConf()
+                    val currentUser = FirebaseAuthConf().currentUser
+
+                    currentUser?.let {
+                        val uid = it.uid
+
+                        scope.launch(Dispatchers.IO) {
+                            firestoreConf.addTodo(
+                                uid, Todo.create(
+                                    content = title,
+                                    priority = Priority.valueOf(priority),
+                                    limit = date.toDate()!!,
+                                    memo = memo
+                                )
+                            )
+                        }
+                    }
+
+
+                    onAddTodo()
+                }) {
                 Text("追加する")
             }
         }
     }
 }
+
 
 
 @Preview(showSystemUi = true)

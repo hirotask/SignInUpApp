@@ -9,6 +9,8 @@ import kotlinx.coroutines.withContext
 
 class FirebaseAuthConf {
 
+    val currentUser get() = Firebase.auth.currentUser
+
     suspend fun signin(email: String, password: String, context: Context, onComplete: () -> Unit = {}) =
 
         withContext(Dispatchers.IO) {
