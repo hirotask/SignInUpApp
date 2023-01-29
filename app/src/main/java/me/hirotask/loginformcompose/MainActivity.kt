@@ -10,11 +10,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.ui.LoginPage
 import me.hirotask.loginformcompose.ui.TodoAddPage
 import me.hirotask.loginformcompose.ui.TodoPage
@@ -41,14 +40,14 @@ fun MyApp() {
 
     val context = LocalContext.current
     val spConf = SpConf(context)
-    val firebaseConf = FirebaseConf()
+    val firebaseAuthConf = FirebaseAuthConf()
     if(spConf.isSignIn()) {
         val account = spConf.getSavedAccountSession()
         val email = account.first
         val pass = account.second
 
         scope.launch(Dispatchers.IO) {
-            firebaseConf.signin(email, pass, context)
+            firebaseAuthConf.signin(email, pass, context)
         }
         startDestination = Routing.Todo.destination
     }

@@ -12,7 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 
@@ -31,9 +31,9 @@ fun TodoPage(
         drawerContent = {
             DrawerText(icon = Icons.Default.Settings, text = "設定", action = toSetting)
             DrawerText(icon = Icons.Default.Home, text = "ログアウト") {
-                val firebaseConf = FirebaseConf()
+                val firebaseAuthConf = FirebaseAuthConf()
                 val spConf = SpConf(context)
-                firebaseConf.signout()
+                firebaseAuthConf.signout()
                 spConf.deleteAccountSession()
 
 

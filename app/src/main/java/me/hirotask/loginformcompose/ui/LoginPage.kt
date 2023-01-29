@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.components.PasswordTextField
@@ -33,12 +33,12 @@ fun LoginPage(
     val context = LocalContext.current
     val spConf = SpConf(context)
     val scope = rememberCoroutineScope()
-    val firebaseConf = FirebaseConf()
+    val firebaseAuthConf = FirebaseAuthConf()
     val LoginSubmit = {
         scope.launch(Dispatchers.IO) {
             ajax = true
             //ログイン処理
-            firebaseConf.signin(email, password, context, onComplete = onSignInHandler)
+            firebaseAuthConf.signin(email, password, context, onComplete = onSignInHandler)
 
             spConf.saveAccountSession(email, password)
 
@@ -50,9 +50,9 @@ fun LoginPage(
         scope.launch(Dispatchers.IO) {
             ajax = true
             //新規登録処理
-            firebaseConf.signup(email, password, context)
+            firebaseAuthConf.signup(email, password, context)
 
-            firebaseConf.signin(email, password, context, onComplete = onSignInHandler)
+            firebaseAuthConf.signin(email, password, context, onComplete = onSignInHandler)
 
             ajax = false
         }

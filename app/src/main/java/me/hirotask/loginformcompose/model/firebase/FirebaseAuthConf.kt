@@ -7,7 +7,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FirebaseConf {
+class FirebaseAuthConf {
 
     suspend fun signin(email: String, password: String, context: Context, onComplete: () -> Unit = {}) =
 
