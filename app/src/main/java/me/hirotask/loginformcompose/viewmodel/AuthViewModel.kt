@@ -10,10 +10,10 @@ import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.model.util.UserState
 
 class AuthViewModel : ViewModel() {
-    private val _userState = MutableStateFlow(UserState())
-    val userState = _userState.asStateFlow()
-
     private val firebaseAuthConf = FirebaseAuthConf()
+
+    private val _userState = MutableStateFlow(UserState(isSignIn = firebaseAuthConf.currentUser != null))
+    val userState = _userState.asStateFlow()
 
     fun signIn(
         email: String,
