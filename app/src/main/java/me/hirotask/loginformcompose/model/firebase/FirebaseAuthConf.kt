@@ -11,23 +11,35 @@ class FirebaseAuthConf {
 
     val currentUser get() = Firebase.auth.currentUser
 
-    suspend fun signin(email: String, password: String, context: Context, onComplete: () -> Unit = {}) =
-
+    suspend fun signin(
+        email: String,
+        password: String,
+        context: Context,
+        onSuccess: () -> Unit = {},
+        onFailure: () -> Unit = {}
+    ) =
         withContext(Dispatchers.IO) {
             Firebase.auth.signInWithEmailAndPassword(
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "ログインに成功しました", Toast.LENGTH_LONG).show()
-                    onComplete()
+                    onSuccess()
                 } else {
                     Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
+                    onFailure()
                 }
             }
         }
 
 
-    suspend fun signup(email: String, password: String, context: Context,onComplete: () -> Unit = {}) =
+    suspend fun signup(
+        email: String,
+        password: String,
+        context: Context,
+        onSuccess: () -> Unit = {},
+        onFailure: () -> Unit = {},
+    ) =
 
         withContext(Dispatchers.IO) {
             Firebase.auth.createUserWithEmailAndPassword(
@@ -35,9 +47,10 @@ class FirebaseAuthConf {
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "新規登録に成功しました", Toast.LENGTH_LONG).show()
-                    onComplete()
+                    onSuccess()
                 } else {
                     Toast.makeText(context, "新規登録に失敗しました", Toast.LENGTH_LONG).show()
+                    onFailure()
                 }
             }
         }

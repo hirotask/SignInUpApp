@@ -68,7 +68,6 @@ fun MyApp() {
             LoginPage(
                 onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
                 onSignInHandler = {
-
                     navController.navigate(Routing.Todo.destination)
                 }
             )

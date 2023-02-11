@@ -14,49 +14,37 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
+import androidx.lifecycle.viewmodel.compose.viewModel
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.components.PasswordTextField
+import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 
 @Composable
 fun LoginPage(
     onPreviousHandler: () -> Unit = {},
     onSignInHandler: () -> Unit = {},
+    authViewModel: AuthViewModel = viewModel()
 ) {
     var ajax by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val userState by authViewModel.userState.collectAsState()
     val context = LocalContext.current
-    val spConf = SpConf(context)
-    val scope = rememberCoroutineScope()
-    val firebaseAuthConf = FirebaseAuthConf()
+
     val LoginSubmit = {
-        scope.launch(Dispatchers.IO) {
-            ajax = true
-            //ログイン処理
-            firebaseAuthConf.signin(email, password, context, onComplete = onSignInHandler)
+        authViewModel.signIn(email, password, context)
 
-            spConf.saveAccountSession(email, password)
-
-            ajax = false
+        if(userState.isSignIn) {
+            onSignInHandler()
         }
-        Unit
     }
     val SignUpSubmit = {
-        scope.launch(Dispatchers.IO) {
-            ajax = true
-            //新規登録処理
-            firebaseAuthConf.signup(email, password, context)
+        authViewModel.signUp(email, password, context)
 
-            firebaseAuthConf.signin(email, password, context, onComplete = onSignInHandler)
-
-            ajax = false
+        if(userState.isSignIn) {
+            onSignInHandler()
         }
-        Unit
     }
 
     Column(
