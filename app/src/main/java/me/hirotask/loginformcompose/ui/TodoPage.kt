@@ -25,7 +25,6 @@ fun TodoPage(
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
-    val context = LocalContext.current
 
     Scaffold(
         scaffoldState = scaffoldState,

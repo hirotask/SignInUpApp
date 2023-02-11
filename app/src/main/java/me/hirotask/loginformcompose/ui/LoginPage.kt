@@ -29,7 +29,6 @@ fun LoginPage(
     var ajax by remember { mutableStateOf(false) }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val userState by authViewModel.userState.collectAsState()
     val context = LocalContext.current
 
     val LoginSubmit = {

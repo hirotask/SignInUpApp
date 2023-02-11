@@ -40,8 +40,7 @@ class AuthViewModel : ViewModel() {
     }
 
     fun signUp(
-        email: String, password: String, context: Context, onSuccess: () -> Unit = {},
-        onFailure: () -> Unit = {}
+        email: String, password: String, context: Context
     ) {
         viewModelScope.launch {
             firebaseAuthConf.signup(

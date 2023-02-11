@@ -6,6 +6,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import me.hirotask.loginformcompose.R
 
 class FirebaseAuthConf {
 
@@ -23,10 +24,10 @@ class FirebaseAuthConf {
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(context, "ログインに成功しました", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.signin_success, Toast.LENGTH_LONG).show()
                     onSuccess()
                 } else {
-                    Toast.makeText(context, "ログインに失敗しました", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.signin_failure, Toast.LENGTH_LONG).show()
                     onFailure()
                 }
             }
@@ -46,10 +47,10 @@ class FirebaseAuthConf {
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(context, "新規登録に成功しました", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.signup_success, Toast.LENGTH_LONG).show()
                     onSuccess()
                 } else {
-                    Toast.makeText(context, "新規登録に失敗しました", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.signin_failure, Toast.LENGTH_LONG).show()
                     onFailure()
                 }
             }
