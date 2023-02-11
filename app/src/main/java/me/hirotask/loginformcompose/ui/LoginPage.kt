@@ -33,18 +33,14 @@ fun LoginPage(
     val context = LocalContext.current
 
     val LoginSubmit = {
-        authViewModel.signIn(email, password, context)
-
-        if(userState.isSignIn) {
+        authViewModel.signIn(email, password, context, onSuccess = {
             onSignInHandler()
-        }
+        })
     }
     val SignUpSubmit = {
-        authViewModel.signUp(email, password, context)
-
-        if(userState.isSignIn) {
+        authViewModel.signUp(email, password, context, onSuccess = {
             onSignInHandler()
-        }
+        })
     }
 
     Column(

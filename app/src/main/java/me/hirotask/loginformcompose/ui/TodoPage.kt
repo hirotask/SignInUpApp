@@ -10,17 +10,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
+import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 
 @Composable
 fun TodoPage(
     toLogin: () -> Unit = {},
     toSetting: () -> Unit = {},
-    toAdd: () -> Unit = {}
+    toAdd: () -> Unit = {},
+    authViewModel: AuthViewModel = viewModel()
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -31,11 +32,7 @@ fun TodoPage(
         drawerContent = {
             DrawerText(icon = Icons.Default.Settings, text = "設定", action = toSetting)
             DrawerText(icon = Icons.Default.Home, text = "ログアウト") {
-                val firebaseAuthConf = FirebaseAuthConf()
-                val spConf = SpConf(context)
-                firebaseAuthConf.signout()
-                spConf.deleteAccountSession()
-
+                authViewModel.signOut()
 
                 scope.launch {
                     scaffoldState.drawerState.apply { if (isOpen) close() }

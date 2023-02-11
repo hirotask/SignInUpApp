@@ -3,8 +3,8 @@ package me.hirotask.loginformcompose.model.firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import me.hirotask.loginformcompose.util.Todo
-import me.hirotask.loginformcompose.util.toMap
+import me.hirotask.loginformcompose.model.util.Todo
+import me.hirotask.loginformcompose.model.util.toMap
 
 class FirestoreConf {
     private val database: FirebaseFirestore get() = FirebaseFirestore.getInstance()

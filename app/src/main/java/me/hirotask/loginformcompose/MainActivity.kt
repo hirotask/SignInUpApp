@@ -5,23 +5,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.SpConf
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
-import me.hirotask.loginformcompose.model.firebase.FirestoreConf
 import me.hirotask.loginformcompose.ui.LoginPage
 import me.hirotask.loginformcompose.ui.TodoAddPage
 import me.hirotask.loginformcompose.ui.TodoPage
 import me.hirotask.loginformcompose.ui.WelcomePage
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.util.Todo
+import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,24 +31,15 @@ class MainActivity : ComponentActivity() {
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
-fun MyApp() {
+fun MyApp(
+    authViewModel: AuthViewModel = viewModel()
+) {
     val navController = rememberNavController()
-    var startDestination = Routing.Welcome.destination
-    val scope = rememberCoroutineScope()
+    val userState by authViewModel.userState.collectAsState()
 
-    val context = LocalContext.current
-    val spConf = SpConf(context)
-    val firebaseAuthConf = FirebaseAuthConf()
-    if(spConf.isSignIn()) {
-        val account = spConf.getSavedAccountSession()
-        val email = account.first
-        val pass = account.second
+    val startDestination =
+        if (userState.isSignIn) Routing.Todo.destination else Routing.Welcome.destination
 
-        scope.launch(Dispatchers.IO) {
-            firebaseAuthConf.signin(email, pass, context)
-        }
-        startDestination = Routing.Todo.destination
-    }
 
     NavHost(navController = navController, startDestination = startDestination) {
         composable(Routing.Welcome.destination) {

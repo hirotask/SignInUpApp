@@ -27,9 +27,8 @@ import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
 import me.hirotask.loginformcompose.model.firebase.FirestoreConf
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.util.Priority
-import me.hirotask.loginformcompose.util.Todo
-import java.text.DateFormat
+import me.hirotask.loginformcompose.model.util.Priority
+import me.hirotask.loginformcompose.model.util.Todo
 import java.util.*
 
 @Composable
