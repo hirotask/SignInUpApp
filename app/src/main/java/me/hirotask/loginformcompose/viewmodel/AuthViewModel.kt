@@ -12,7 +12,8 @@ import me.hirotask.loginformcompose.model.util.UserState
 class AuthViewModel : ViewModel() {
     private val firebaseAuthConf = FirebaseAuthConf()
 
-    private val _userState = MutableStateFlow(UserState(isSignIn = firebaseAuthConf.currentUser != null))
+    private val _userState =
+        MutableStateFlow(UserState(isSignIn = firebaseAuthConf.currentUser != null))
     val userState = _userState.asStateFlow()
 
     fun signIn(
@@ -40,7 +41,11 @@ class AuthViewModel : ViewModel() {
     }
 
     fun signUp(
-        email: String, password: String, context: Context
+        email: String,
+        password: String,
+        context: Context,
+        onSuccess: () -> Unit = {},
+        onFailure: () -> Unit = {}
     ) {
         viewModelScope.launch {
             firebaseAuthConf.signup(
@@ -48,7 +53,10 @@ class AuthViewModel : ViewModel() {
                 password,
                 context,
                 onSuccess = {
-                    signIn(email, password, context)
+                    signIn(email, password, context, onSuccess)
+                },
+                onFailure = {
+                    onFailure()
                 }
             )
         }
