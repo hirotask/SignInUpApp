@@ -1,6 +1,8 @@
 package me.hirotask.loginformcompose.ui
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -79,10 +81,10 @@ fun TodoPage(
         },
         floatingActionButtonPosition = FabPosition.Center,
     ) {
-        Column {
-            todoList.forEach {
-                CardTodoListItem(todo = it) {
-                    todoViewModel.completeTodo(it)
+        LazyColumn {
+            items(todoList) { todo ->
+                CardTodoListItem(todo = todo) {
+                    todoViewModel.completeTodo(todo)
                 }
             }
         }
