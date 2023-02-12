@@ -18,8 +18,9 @@ class TodoViewModel: ViewModel() {
 
     private val _list = MutableStateFlow(listOf<Todo>())
     private val _loading = MutableStateFlow(false)
-    val list: StateFlow<List<Todo>> = _list
-    val loading: StateFlow<Boolean> = _loading
+
+    val list: StateFlow<List<Todo>> get() = _list
+    val loading: StateFlow<Boolean> get() = _loading
 
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
