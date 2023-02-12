@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import me.hirotask.loginformcompose.model.util.Priority
 import me.hirotask.loginformcompose.toDate
+import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.TodoViewModel
 import java.util.*
@@ -43,6 +44,7 @@ fun TodoAddPage(
     val scaffoldState = rememberScaffoldState()
     val focusManager = LocalFocusManager.current
 
+    val loading by todoViewModel.loading.collectAsState()
     var title by remember { mutableStateOf("") }
     var memo by remember { mutableStateOf("") }
     var dropdownExpanded by remember { mutableStateOf(false) }
@@ -186,8 +188,9 @@ fun TodoAddPage(
 
             Spacer(Modifier.height(4.dp))
 
-            Button(
+            NormalButton(
                 modifier = Modifier.fillMaxWidth(),
+                loading = loading,
                 onClick = {
                     todoViewModel.addTodo(
                         content = title,
@@ -196,9 +199,9 @@ fun TodoAddPage(
                         memo = memo
                     )
                     onAddTodo()
-                }) {
-                Text("追加する")
-            }
+                },
+                text = "追加する"
+            )
         }
     }
 }
