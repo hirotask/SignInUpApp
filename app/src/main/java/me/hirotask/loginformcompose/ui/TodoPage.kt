@@ -93,6 +93,8 @@ fun TodoPage(
 
 @Composable
 fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
+    if (todo.isComplete) return
+
     Card(
         modifier = Modifier
             .padding(16.dp)
@@ -108,7 +110,7 @@ fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
                 Text(text = "優先度:${todo.priority}", style = MaterialTheme.typography.body1)
                 Text(text = "期限:${todo.limit.getDeadline()}日後")
             }
-            Checkbox(checked = false, onCheckedChange = {
+            Checkbox(checked = todo.isComplete, onCheckedChange = {
                 onCompleteTodo()
             })
         }

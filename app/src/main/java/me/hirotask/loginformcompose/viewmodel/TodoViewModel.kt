@@ -41,7 +41,17 @@ class TodoViewModel : ViewModel() {
     }
 
     fun completeTodo(todo: Todo) {
-        _list.value = _list.value.getCompleted(todo)
+        val firestore = FirestoreRepository()
+        val auth = FirebaseAuthRepository()
+
+        viewModelScope.launch {
+            auth.currentUser?.let { user ->
+                val uid = user.uid
+                firestore.completeTodo(uid, todo.id, onSuccess = {
+                    _list.value = _list.value.getCompleted(todo)
+                })
+            }
+        }
     }
 
     private fun fetchTodoList() {

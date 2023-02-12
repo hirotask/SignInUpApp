@@ -38,5 +38,20 @@ class FirestoreRepository {
         }
     }
 
+    suspend fun completeTodo(
+        userUUID: String,
+        id: String,
+        onSuccess: () -> Unit = {},
+        onFailure: () -> Unit = {}
+    ) = withContext(Dispatchers.IO) {
+        val collection = database.collection("todolist").document("users").collection(userUUID)
+        collection.document(id).update("isComplete", true).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                onSuccess()
+            } else {
+                onFailure()
+            }
+        }
+    }
 
 }
