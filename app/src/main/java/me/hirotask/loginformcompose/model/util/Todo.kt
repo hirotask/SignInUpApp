@@ -1,7 +1,6 @@
 package me.hirotask.loginformcompose.model.util
 
 import com.google.firebase.Timestamp
-import me.hirotask.loginformcompose.toDate
 import java.util.*
 
 data class Todo(

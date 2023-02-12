@@ -1,9 +1,6 @@
 package me.hirotask.loginformcompose.model.firebase
 
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.model.util.Todo
