@@ -50,7 +50,7 @@ class FirebaseAuthRepository {
                     Toast.makeText(context, R.string.signup_success, Toast.LENGTH_LONG).show()
                     onSuccess()
                 } else {
-                    Toast.makeText(context, R.string.signin_failure, Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.signup_failure, Toast.LENGTH_LONG).show()
                     onFailure()
                 }
             }
