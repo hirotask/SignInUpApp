@@ -11,14 +11,14 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun NormalButton(
     text: String,
-    ajax : Boolean = false,
+    loading : Boolean = false,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
     Button(
-        onClick = onClick, enabled = !ajax, modifier = modifier
+        onClick = onClick, enabled = !loading, modifier = modifier
     ) {
-        if(ajax) {
+        if(loading) {
             CircularProgressIndicator(
                 strokeWidth = 2.dp,
                 modifier = Modifier.size(24.dp)

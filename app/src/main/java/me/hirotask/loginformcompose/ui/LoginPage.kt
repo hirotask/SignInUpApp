@@ -26,7 +26,7 @@ fun LoginPage(
     onSignInHandler: () -> Unit = {},
     authViewModel: AuthViewModel = viewModel()
 ) {
-    var ajax by remember { mutableStateOf(false) }
+    val loading by authViewModel.loadingState.collectAsState()
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     val context = LocalContext.current
@@ -71,7 +71,7 @@ fun LoginPage(
             Spacer(Modifier.height(12.dp))
             NormalButton(
                 "ログイン",
-                ajax,
+                loading,
                 Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -80,7 +80,7 @@ fun LoginPage(
             Spacer(Modifier.height(6.dp))
             NormalButton(
                 "新規登録",
-                ajax,
+                loading,
                 Modifier
                     .fillMaxWidth()
                     .height(56.dp),

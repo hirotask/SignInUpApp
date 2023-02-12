@@ -14,7 +14,10 @@ class AuthViewModel : ViewModel() {
 
     private val _userState =
         MutableStateFlow(UserState(isSignIn = firebaseAuthRepository.currentUser != null))
+    private val _loading = MutableStateFlow(false)
+
     val userState = _userState.asStateFlow()
+    val loadingState = _loading.asStateFlow()
 
     fun signIn(
         email: String,
@@ -23,6 +26,7 @@ class AuthViewModel : ViewModel() {
         onSuccess: () -> Unit = {},
         onFailure: () -> Unit = {}
     ) {
+        _loading.value = true
         viewModelScope.launch {
             firebaseAuthRepository.signin(
                 email,
@@ -38,6 +42,7 @@ class AuthViewModel : ViewModel() {
                 }
             )
         }
+        _loading.value = false
     }
 
     fun signUp(
@@ -47,6 +52,7 @@ class AuthViewModel : ViewModel() {
         onSuccess: () -> Unit = {},
         onFailure: () -> Unit = {}
     ) {
+        _loading.value = true
         viewModelScope.launch {
             firebaseAuthRepository.signup(
                 email,
