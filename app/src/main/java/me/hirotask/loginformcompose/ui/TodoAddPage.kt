@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthConf
-import me.hirotask.loginformcompose.model.firebase.FirestoreConf
+import me.hirotask.loginformcompose.model.firebase.FirebaseAuthRepository
+import me.hirotask.loginformcompose.model.firebase.FirestoreRepository
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.model.util.Priority
@@ -194,14 +194,14 @@ fun TodoAddPage(
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
-                    val firestoreConf = FirestoreConf()
-                    val currentUser = FirebaseAuthConf().currentUser
+                    val firestoreRepository = FirestoreRepository()
+                    val currentUser = FirebaseAuthRepository().currentUser
 
                     currentUser?.let {
                         val uid = it.uid
 
                         scope.launch(Dispatchers.IO) {
-                            firestoreConf.addTodo(
+                            firestoreRepository.addTodo(
                                 uid, Todo.create(
                                     content = title,
                                     priority = priority,

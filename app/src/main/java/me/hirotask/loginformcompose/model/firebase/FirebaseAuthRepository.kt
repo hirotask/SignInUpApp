@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.R
 
-class FirebaseAuthConf {
+class FirebaseAuthRepository {
 
     val currentUser get() = Firebase.auth.currentUser
 

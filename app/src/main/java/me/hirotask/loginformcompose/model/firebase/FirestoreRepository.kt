@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.model.util.Todo
 import me.hirotask.loginformcompose.model.util.toMap
 
-class FirestoreConf {
+class FirestoreRepository {
     private val database: FirebaseFirestore get() = FirebaseFirestore.getInstance()
 
     suspend fun addTodo(userUUID: String, todo: Todo): Boolean = withContext(Dispatchers.IO) {
