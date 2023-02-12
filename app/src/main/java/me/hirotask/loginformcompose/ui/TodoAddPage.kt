@@ -38,7 +38,7 @@ fun TodoAddPage(
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
     val year = calendar.get(Calendar.YEAR)
-    val month = calendar.get(Calendar.MONTH) + 1
+    val month = calendar.get(Calendar.MONTH)
     val day = calendar.get(Calendar.DAY_OF_MONTH)
 
     val scaffoldState = rememberScaffoldState()
@@ -54,7 +54,7 @@ fun TodoAddPage(
     val datePickerDialog = DatePickerDialog(
         context,
         { _: DatePicker, myear: Int, mmonth: Int, mday: Int ->
-            date = "$myear/$mmonth/$mday"
+            date = "$myear/${String.format("%02d", mmonth+1)}/$mday"
         },
         year,
         month,

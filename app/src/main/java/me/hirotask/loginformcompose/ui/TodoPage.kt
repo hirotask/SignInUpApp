@@ -1,6 +1,6 @@
 package me.hirotask.loginformcompose.ui
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -11,10 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.getDeadline
+import me.hirotask.loginformcompose.model.util.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.AuthViewModel
@@ -76,11 +81,39 @@ fun TodoPage(
     ) {
         Column {
             todoList.forEach {
-                Text(it.content)
+                CardTodoListItem(todo = it) {
+                    todoViewModel.completeTodo(it)
+                }
             }
         }
     }
 }
+
+@Composable
+fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
+    Card(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+            .shadow(2.dp)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column {
+                Text(text = todo.content, style = MaterialTheme.typography.h5)
+                Text(text = "優先度:${todo.priority}", style = MaterialTheme.typography.body1)
+                Text(text = "期限:${todo.limit.getDeadline()}日後")
+            }
+            Checkbox(checked = false, onCheckedChange = {
+                onCompleteTodo()
+            })
+        }
+    }
+
+}
+
 
 @Preview(showSystemUi = true)
 @Composable

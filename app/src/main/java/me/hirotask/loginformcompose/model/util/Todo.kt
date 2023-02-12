@@ -35,6 +35,7 @@ fun Todo.toMap(): Map<String, *> {
 fun List<Todo>.getCompleted(todo: Todo): List<Todo> {
     return this.map {
         if (it.id == todo.id) {
+
             it.getCompleted()
         } else {
             it
