@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.model.firebase.FirebaseAuthRepository
 import me.hirotask.loginformcompose.model.firebase.FirestoreRepository
@@ -11,24 +12,24 @@ import me.hirotask.loginformcompose.model.util.Todo
 import me.hirotask.loginformcompose.model.util.getCompleted
 import java.util.*
 
-class TodoViewModel: ViewModel() {
+class TodoViewModel : ViewModel() {
 
-    private val _list = MutableStateFlow(listOf<Todo>())
+    private val _list: MutableStateFlow<List<Todo>> = MutableStateFlow(listOf())
     private val _loading = MutableStateFlow(false)
+
+    val list: StateFlow<List<Todo>> = _list.asStateFlow()
+    val loading: StateFlow<Boolean> = _loading.asStateFlow()
 
     init {
         fetchTodoList()
     }
 
-    val firestore = FirestoreRepository()
-
-    val list: StateFlow<List<Todo>> get() = _list
-    val loading: StateFlow<Boolean> get() = _loading
-
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
         val todo = Todo.create(content, priority, limit, memo, false)
-        val currentUser = FirebaseAuthRepository().currentUser ?: return false
+        val firestore = FirestoreRepository()
+        val auth = FirebaseAuthRepository()
+        val currentUser = auth.currentUser ?: return false
 
         val uid = currentUser.uid
 
@@ -43,15 +44,22 @@ class TodoViewModel: ViewModel() {
         _list.value = _list.value.getCompleted(todo)
     }
 
-    private fun fetchTodoList(): Boolean {
-        val currentUser = FirebaseAuthRepository().currentUser ?: return false
-        val uid = currentUser.uid
+    private fun fetchTodoList() {
+        val auth = FirebaseAuthRepository()
+        val firestore = FirestoreRepository()
 
-        viewModelScope.launch {
-            val result = firestore.fetchTodo(uid)
-            _list.value = result
+        val currentUser = auth.currentUser
+        currentUser?.let {
+            viewModelScope.launch {
+                val uid = currentUser.uid
+
+                firestore.fetchTodo(
+                    uid,
+                    onSuccess = {
+                        _list.value = it
+                    }
+                )
+            }
         }
-
-        return true
     }
 }

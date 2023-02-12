@@ -1,5 +1,6 @@
 package me.hirotask.loginformcompose.model.util
 
+import com.google.firebase.Timestamp
 import me.hirotask.loginformcompose.toDate
 import java.util.*
 
@@ -46,8 +47,8 @@ fun Map<String, Any>.toTodo(): Todo {
     val id: String = this["id"] as String
     val time: Long = this["time"] as Long
     val content: String = this["content"] as String
-    val limitStr: String = this["limit"] as String
-    val limit: Date? = limitStr.toDate("yyyy年mm月dd日")
+    val limitTimestamp: Timestamp = this["limit"] as Timestamp
+    val limit: Date = limitTimestamp.toDate()
     val memo: String = this["memo"] as String
     val priority: String = this["priority"] as String
     val isComplete: Boolean = this["isComplete"] as Boolean
@@ -56,7 +57,7 @@ fun Map<String, Any>.toTodo(): Todo {
         id = id,
         time = time,
         content = content,
-        limit = limit!!,
+        limit = limit,
         memo = memo,
         priority = priority,
         isComplete = isComplete

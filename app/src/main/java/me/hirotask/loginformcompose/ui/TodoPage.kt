@@ -1,5 +1,6 @@
 package me.hirotask.loginformcompose.ui
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -7,6 +8,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,16 +18,20 @@ import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.AuthViewModel
+import me.hirotask.loginformcompose.viewmodel.TodoViewModel
 
 @Composable
 fun TodoPage(
     toLogin: () -> Unit = {},
     toSetting: () -> Unit = {},
     toAdd: () -> Unit = {},
-    authViewModel: AuthViewModel = viewModel()
+    authViewModel: AuthViewModel = viewModel(),
+    todoViewModel: TodoViewModel = viewModel()
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
+
+    val todoList by todoViewModel.list.collectAsState()
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -67,7 +74,11 @@ fun TodoPage(
         },
         floatingActionButtonPosition = FabPosition.Center,
     ) {
-
+        Column {
+            todoList.forEach {
+                Text(it.content)
+            }
+        }
     }
 }
 

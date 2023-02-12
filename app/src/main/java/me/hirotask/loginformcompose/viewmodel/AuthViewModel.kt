@@ -13,11 +13,11 @@ class AuthViewModel : ViewModel() {
     private val firebaseAuthRepository = FirebaseAuthRepository()
 
     private val _userState =
-        MutableStateFlow(UserState(isSignIn = firebaseAuthRepository.currentUser != null))
+        MutableStateFlow(UserState(isSignIn = FirebaseAuthRepository().currentUser != null))
     private val _loading = MutableStateFlow(false)
 
-    val userState get() = _userState.asStateFlow()
-    val loadingState get() = _loading.asStateFlow()
+    val userState  = _userState.asStateFlow()
+    val loadingState = _loading.asStateFlow()
 
     fun signIn(
         email: String,
