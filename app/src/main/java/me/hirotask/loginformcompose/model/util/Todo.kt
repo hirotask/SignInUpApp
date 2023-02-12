@@ -8,13 +8,18 @@ data class Todo(
     val content: String,
     val priority: String,
     val limit: Date,
-    val memo: String
+    val memo: String,
+    val isComplete: Boolean
 ) {
     companion object {
-        fun create(content: String, priority: String, limit: Date, memo: String) =
-            Todo(UUID.randomUUID().toString(), Date().time, content, priority, limit, memo)
+        fun create(content: String, priority: String, limit: Date, memo: String, isComplete: Boolean) =
+            Todo(UUID.randomUUID().toString(), Date().time, content, priority, limit, memo, isComplete)
     }
+
+    fun getCompleted(): Todo = this.copy(isComplete = true)
+
 }
+
 fun Todo.toMap(): Map<String, *> {
     return hashMapOf(
         "id" to id,
@@ -24,4 +29,14 @@ fun Todo.toMap(): Map<String, *> {
         "limit" to limit,
         "memo" to memo
     )
+}
+
+fun List<Todo>.getCompleted(todo: Todo): List<Todo> {
+    return this.map {
+        if (it.id == todo.id) {
+            it.getCompleted()
+        } else {
+            it
+        }
+    }
 }

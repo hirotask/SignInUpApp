@@ -1,6 +1,5 @@
 package me.hirotask.loginformcompose.ui
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import me.hirotask.loginformcompose.ui.components.NormalButton
 
-@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun WelcomePage(
     onClickHandler: () -> Unit = {},

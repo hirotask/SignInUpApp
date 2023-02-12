@@ -21,20 +21,18 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthRepository
-import me.hirotask.loginformcompose.model.firebase.FirestoreRepository
+import androidx.lifecycle.viewmodel.compose.viewModel
+import me.hirotask.loginformcompose.model.util.Priority
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.model.util.Priority
-import me.hirotask.loginformcompose.model.util.Todo
+import me.hirotask.loginformcompose.viewmodel.TodoViewModel
 import java.util.*
 
 @Composable
 fun TodoAddPage(
     toTodo: () -> Unit = {},
     onAddTodo: () -> Unit = {},
+    todoViewModel: TodoViewModel = viewModel()
 ) {
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
@@ -60,9 +58,6 @@ fun TodoAddPage(
         month,
         day
     )
-
-    val scope = rememberCoroutineScope()
-
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -194,25 +189,12 @@ fun TodoAddPage(
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
-                    val firestoreRepository = FirestoreRepository()
-                    val currentUser = FirebaseAuthRepository().currentUser
-
-                    currentUser?.let {
-                        val uid = it.uid
-
-                        scope.launch(Dispatchers.IO) {
-                            firestoreRepository.addTodo(
-                                uid, Todo.create(
-                                    content = title,
-                                    priority = priority,
-                                    limit = date.toDate()!!,
-                                    memo = memo
-                                )
-                            )
-                        }
-                    }
-
-
+                    todoViewModel.addTodo(
+                        content = title,
+                        priority = priority,
+                        limit = date.toDate()!!,
+                        memo = memo
+                    )
                     onAddTodo()
                 }) {
                 Text("追加する")
@@ -220,7 +202,6 @@ fun TodoAddPage(
         }
     }
 }
-
 
 
 @Preview(showSystemUi = true)
