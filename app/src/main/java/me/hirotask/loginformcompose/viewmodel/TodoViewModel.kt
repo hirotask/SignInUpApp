@@ -1,8 +1,5 @@
 package me.hirotask.loginformcompose.viewmodel
 
-import androidx.compose.runtime.MutableState
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,13 +16,18 @@ class TodoViewModel: ViewModel() {
     private val _list = MutableStateFlow(listOf<Todo>())
     private val _loading = MutableStateFlow(false)
 
+    init {
+        fetchTodoList()
+    }
+
+    val firestore = FirestoreRepository()
+
     val list: StateFlow<List<Todo>> get() = _list
     val loading: StateFlow<Boolean> get() = _loading
 
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
         val todo = Todo.create(content, priority, limit, memo, false)
-        val firestore = FirestoreRepository()
         val currentUser = FirebaseAuthRepository().currentUser ?: return false
 
         val uid = currentUser.uid
@@ -41,6 +43,15 @@ class TodoViewModel: ViewModel() {
         _list.value = _list.value.getCompleted(todo)
     }
 
+    private fun fetchTodoList(): Boolean {
+        val currentUser = FirebaseAuthRepository().currentUser ?: return false
+        val uid = currentUser.uid
 
+        viewModelScope.launch {
+            val result = firestore.fetchTodo(uid)
+            _list.value = result
+        }
 
+        return true
+    }
 }

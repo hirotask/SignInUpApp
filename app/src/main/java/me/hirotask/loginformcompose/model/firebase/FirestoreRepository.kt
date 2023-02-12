@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.model.util.Todo
 import me.hirotask.loginformcompose.model.util.toMap
+import me.hirotask.loginformcompose.model.util.toTodo
 
 class FirestoreRepository {
     private val database: FirebaseFirestore get() = FirebaseFirestore.getInstance()
@@ -21,15 +22,11 @@ class FirestoreRepository {
         }
     }
 
-//    suspend fun fetchTodo(userUUID: String, limit: Long): List<Todo> = withContext(Dispatchers.IO) {
-//        try {
-//            val collection = database.collection("todolist").document("users").collection(userUUID)
-//            val documents = collection.limit(limit).get().addOnCompleteListener {
-//                it.
-//            }
-//            return documents
-//        }
-//    }
+    suspend fun fetchTodo(userUUID: String): List<Todo> = withContext(Dispatchers.IO) {
+        val collection = database.collection("todolist").document("users").collection(userUUID)
+        val documents = collection.get().result
+        return@withContext documents.map { it.data }.map { it.toTodo() }
+    }
 
 
 }
