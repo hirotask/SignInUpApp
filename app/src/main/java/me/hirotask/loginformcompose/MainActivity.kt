@@ -11,10 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import me.hirotask.loginformcompose.ui.LoginPage
-import me.hirotask.loginformcompose.ui.TodoAddPage
-import me.hirotask.loginformcompose.ui.TodoPage
-import me.hirotask.loginformcompose.ui.WelcomePage
+import me.hirotask.loginformcompose.ui.*
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 
@@ -61,7 +58,7 @@ fun MyApp(
         composable(Routing.Todo.destination) {
             TodoPage(
                 toSetting = {
-                    navController.navigate(Routing.Login.destination)
+                    navController.navigate(Routing.Settings.destination)
                 },
                 toLogin = {
                     navController.navigate(Routing.Login.destination)
@@ -79,6 +76,17 @@ fun MyApp(
                 },
                 onAddTodo = {
                     navController.navigate(Routing.Todo.destination)
+                }
+            )
+        }
+        composable(Routing.Settings.destination) {
+            SettingsPage(
+                toTodo = {
+                    navController.navigate(Routing.Todo.destination)
+                },
+                toLogin = {
+                    navController.navigate(Routing.Login.destination)
+
                 }
             )
         }

@@ -22,6 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.getDeadline
 import me.hirotask.loginformcompose.model.util.Todo
+import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.AuthViewModel
@@ -43,17 +44,11 @@ fun TodoPage(
     Scaffold(
         scaffoldState = scaffoldState,
         drawerContent = {
-            DrawerText(icon = Icons.Default.Settings, text = "設定", action = toSetting)
-            DrawerText(icon = Icons.Default.Home, text = "ログアウト") {
-                authViewModel.signOut()
-
-                scope.launch {
-                    scaffoldState.drawerState.apply { if (isOpen) close() }
-                    scaffoldState.snackbarHostState.showSnackbar("ログアウトしました")
-
-                    toLogin()
-                }
-            }
+            DrawerContent(scaffoldState = scaffoldState, SettingsAction = {
+                toSetting()
+            }, LogoutAction = {
+                toLogin()
+            })
         },
         topBar = {
             TopAppBar(
