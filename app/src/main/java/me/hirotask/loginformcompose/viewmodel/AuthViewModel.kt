@@ -6,14 +6,14 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
+import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepositoryImpl
 import me.hirotask.loginformcompose.model.domain.UserState
 
 class AuthViewModel : ViewModel() {
-    private val firebaseAuthRepository = FirebaseAuthRepository()
+    private val firebaseAuthRepositoryImpl = FirebaseAuthRepositoryImpl()
 
     private val _userState =
-        MutableStateFlow(UserState(isSignIn = FirebaseAuthRepository().currentUser != null))
+        MutableStateFlow(UserState(isSignIn = FirebaseAuthRepositoryImpl().currentUser != null))
     private val _loading = MutableStateFlow(false)
 
     val userState  = _userState.asStateFlow()
@@ -28,7 +28,7 @@ class AuthViewModel : ViewModel() {
     ) {
         _loading.value = true
         viewModelScope.launch {
-            firebaseAuthRepository.signin(
+            firebaseAuthRepositoryImpl.signIn(
                 email,
                 password,
                 context,
@@ -54,7 +54,7 @@ class AuthViewModel : ViewModel() {
     ) {
         _loading.value = true
         viewModelScope.launch {
-            firebaseAuthRepository.signup(
+            firebaseAuthRepositoryImpl.signUp(
                 email,
                 password,
                 context,
@@ -69,7 +69,7 @@ class AuthViewModel : ViewModel() {
     }
 
     fun signOut() {
-        firebaseAuthRepository.signout()
+        firebaseAuthRepositoryImpl.signOut()
     }
 
 }

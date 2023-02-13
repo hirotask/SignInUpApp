@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
-import me.hirotask.loginformcompose.model.repository.FirestoreRepository
+import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepositoryImpl
+import me.hirotask.loginformcompose.model.repository.FirestoreRepositoryImpl
 import me.hirotask.loginformcompose.model.domain.Todo
 import me.hirotask.loginformcompose.model.domain.getCompleted
 import java.util.*
@@ -27,8 +27,8 @@ class TodoViewModel : ViewModel() {
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
         val todo = Todo.create(content, priority, limit, memo, false)
-        val firestore = FirestoreRepository()
-        val auth = FirebaseAuthRepository()
+        val firestore = FirestoreRepositoryImpl()
+        val auth = FirebaseAuthRepositoryImpl()
         val currentUser = auth.currentUser ?: return false
 
         val uid = currentUser.uid
@@ -41,8 +41,8 @@ class TodoViewModel : ViewModel() {
     }
 
     fun completeTodo(todo: Todo) {
-        val firestore = FirestoreRepository()
-        val auth = FirebaseAuthRepository()
+        val firestore = FirestoreRepositoryImpl()
+        val auth = FirebaseAuthRepositoryImpl()
 
         viewModelScope.launch {
             auth.currentUser?.let { user ->
@@ -55,8 +55,8 @@ class TodoViewModel : ViewModel() {
     }
 
     private fun fetchTodoList() {
-        val auth = FirebaseAuthRepository()
-        val firestore = FirestoreRepository()
+        val auth = FirebaseAuthRepositoryImpl()
+        val firestore = FirestoreRepositoryImpl()
 
         val currentUser = auth.currentUser
         currentUser?.let {
