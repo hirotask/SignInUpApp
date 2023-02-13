@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthRepository
-import me.hirotask.loginformcompose.model.util.UserState
+import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
+import me.hirotask.loginformcompose.model.domain.UserState
 
 class AuthViewModel : ViewModel() {
     private val firebaseAuthRepository = FirebaseAuthRepository()

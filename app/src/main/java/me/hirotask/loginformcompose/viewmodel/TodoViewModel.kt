@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.firebase.FirebaseAuthRepository
-import me.hirotask.loginformcompose.model.firebase.FirestoreRepository
-import me.hirotask.loginformcompose.model.util.Todo
-import me.hirotask.loginformcompose.model.util.getCompleted
+import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
+import me.hirotask.loginformcompose.model.repository.FirestoreRepository
+import me.hirotask.loginformcompose.model.domain.Todo
+import me.hirotask.loginformcompose.model.domain.getCompleted
 import java.util.*
 
 class TodoViewModel : ViewModel() {

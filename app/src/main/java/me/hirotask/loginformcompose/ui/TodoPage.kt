@@ -6,9 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -21,11 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.getDeadline
-import me.hirotask.loginformcompose.model.util.Todo
+import me.hirotask.loginformcompose.model.domain.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerContent
-import me.hirotask.loginformcompose.ui.components.DrawerText
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 import me.hirotask.loginformcompose.viewmodel.TodoViewModel
 
 @Composable
@@ -33,7 +29,6 @@ fun TodoPage(
     toLogin: () -> Unit = {},
     toSetting: () -> Unit = {},
     toAdd: () -> Unit = {},
-    authViewModel: AuthViewModel = viewModel(),
     todoViewModel: TodoViewModel = viewModel()
 ) {
     val scaffoldState = rememberScaffoldState()

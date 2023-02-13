@@ -57,11 +57,11 @@ fun MyApp(
         }
         composable(Routing.Todo.destination) {
             TodoPage(
-                toSetting = {
-                    navController.navigate(Routing.Settings.destination)
-                },
                 toLogin = {
                     navController.navigate(Routing.Login.destination)
+                },
+                toSetting = {
+                    navController.navigate(Routing.Settings.destination)
                 },
                 toAdd = {
                     navController.navigate(Routing.TodoAdd.destination)
