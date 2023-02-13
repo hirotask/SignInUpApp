@@ -65,7 +65,7 @@ fun TodoAddPage(
         scaffoldState = scaffoldState,
         topBar = {
             TopAppBar(
-                title = { Text("TODO追加ページ") },
+                title = { Text("TODO追加") },
                 navigationIcon = {
                     IconButton(
                         onClick = {
