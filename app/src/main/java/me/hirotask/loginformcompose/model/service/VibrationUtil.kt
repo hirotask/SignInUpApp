@@ -24,7 +24,7 @@ object VibrationUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 this.vibrate(VibrationEffect.createOneShot(time, VibrationEffect.DEFAULT_AMPLITUDE))
             } else {
-                this.vibrate(10)
+                this.vibrate(time)
             }
         } catch (_: Exception) {}
     }
