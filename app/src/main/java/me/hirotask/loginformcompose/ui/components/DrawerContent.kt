@@ -2,6 +2,7 @@ package me.hirotask.loginformcompose.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
@@ -58,7 +59,7 @@ fun DrawerText(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.clickable(onClick = action)
+        modifier = Modifier.clickable(onClick = action).fillMaxWidth()
     ) {
         Icon(icon, iconDescription)
         Text(text, modifier = Modifier.padding(16.dp))
