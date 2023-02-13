@@ -59,7 +59,7 @@ fun SettingsPage(toTodo: () -> Unit, toLogin: () -> Unit) {
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
         ) {
-            SectionTitle(title = "ユーザビリティ")
+            SectionTitle(title = "アクセシビリティ")
             SwitchPreference("バイブレーション", "ボタン押下時の振動: オン")
         }
     }
