@@ -16,12 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.model.domain.Priority
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.components.NormalButton
@@ -65,7 +67,7 @@ fun TodoAddPage(
         scaffoldState = scaffoldState,
         topBar = {
             TopAppBar(
-                title = { Text("TODO追加") },
+                title = { Text(stringResource(id = R.string.add_todo)) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -83,7 +85,7 @@ fun TodoAddPage(
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            Text("Todo内容")
+            Text(stringResource(id = R.string.todo_contents))
             OutlinedTextField(
                 value = title,
                 onValueChange = { title = it },
@@ -101,7 +103,7 @@ fun TodoAddPage(
 
             Spacer(Modifier.height(4.dp))
 
-            Text("優先度")
+            Text(stringResource(id = R.string.todo_priority))
             Column {
                 OutlinedTextField(
                     value = priority,
@@ -147,7 +149,7 @@ fun TodoAddPage(
             }
             Spacer(Modifier.height(4.dp))
 
-            Text("終了期限")
+            Text(stringResource(id = R.string.todo_limit))
             Column {
                 OutlinedTextField(
                     value = date,
@@ -168,7 +170,7 @@ fun TodoAddPage(
 
             Spacer(Modifier.height(4.dp))
 
-            Text("メモ")
+            Text(stringResource(id = R.string.todo_memo))
             OutlinedTextField(
                 value = memo,
                 onValueChange = { memo = it },
@@ -200,7 +202,7 @@ fun TodoAddPage(
                     )
                     onAddTodo()
                 },
-                text = "追加する"
+                text = R.string.add
             )
         }
     }

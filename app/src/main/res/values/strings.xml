@@ -1,10 +1,34 @@
 <resources>
     <string name="app_name">TodoMobileApp</string>
     <string name="client_id">59093459737-0vbuet34bcq5js42pdhraus1gto4ikvh.apps.googleusercontent.com</string>
-    <!-- ログイン処理関連 -->
+
+    <!-- 共通用語 -->
+    <string name="email">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="sign_in">ログイン</string>
+    <string name="sign_up">新規登録</string>
+    <string name="sign_out">ログアウト</string>
+    <string name="settings">設定</string>
+    <string name="add">追加する</string>
+
+    <!-- Todo関連 -->
+    <string name="todo_list">Todo一覧</string>
+    <string name="add_todo">Todo追加</string>
+    <string name="todo_contents">Todo内容</string>
+    <string name="todo_priority">優先度</string>
+    <string name="todo_limit">終了期限</string>
+    <string name="todo_memo">メモ</string>
+
+    <!-- ログイン -->
+    <string name="email_signin">メールアドレスでログイン</string>
     <string name="signin_success">ログインに成功しました</string>
     <string name="signin_failure">ログインに失敗しました</string>
     <string name="signup_success">新規登録に成功しました</string>
     <string name="signup_failure">新規登録に失敗しました</string>
+    <string name="signout_success">ログアウトしました</string>
+
+    <!-- 設定 -->
+
+
 
 </resources>

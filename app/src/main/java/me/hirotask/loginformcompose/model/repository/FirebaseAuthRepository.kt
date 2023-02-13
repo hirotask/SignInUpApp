@@ -24,5 +24,5 @@ interface FirebaseAuthRepository {
         onFailure: () -> Unit = {},
     ): Task<AuthResult>
 
-    fun signOut()
+    fun signOut(context: Context)
 }

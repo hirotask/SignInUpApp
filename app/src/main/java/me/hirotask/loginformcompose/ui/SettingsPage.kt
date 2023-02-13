@@ -12,9 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 
 @Composable
@@ -37,7 +39,7 @@ fun SettingsPage(toTodo: () -> Unit, toLogin: () -> Unit) {
         },
         topBar = {
             TopAppBar(
-                title = { Text("設定") },
+                title = { Text(stringResource(id = R.string.settings)) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -112,7 +114,9 @@ private fun SwitchPreference(
     onCheckedChange: (Boolean) -> Unit = {}
 ) {
     Row(
-        modifier = modifier.padding(16.dp).fillMaxWidth(),
+        modifier = modifier
+            .padding(16.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

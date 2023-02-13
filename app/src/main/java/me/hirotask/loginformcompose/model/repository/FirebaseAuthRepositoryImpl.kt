@@ -56,8 +56,9 @@ class FirebaseAuthRepositoryImpl: FirebaseAuthRepository {
             }
         }
 
-    override fun signOut() {
+    override fun signOut(context: Context) {
         Firebase.auth.signOut()
+        Toast.makeText(context, R.string.signout_success, Toast.LENGTH_LONG).show()
     }
 
 }

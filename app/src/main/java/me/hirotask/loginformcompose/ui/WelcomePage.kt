@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.NormalButton
 
 @Composable
@@ -21,6 +22,6 @@ fun WelcomePage(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        NormalButton(text = "Emailでログイン", onClick = onClickHandler)
+        NormalButton(text = R.string.email_signin, onClick = onClickHandler)
     }
 }

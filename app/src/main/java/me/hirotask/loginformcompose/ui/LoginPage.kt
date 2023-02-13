@@ -15,6 +15,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.components.PasswordTextField
@@ -70,25 +71,27 @@ fun LoginPage(
             ) { password = it }
             Spacer(Modifier.height(12.dp))
             NormalButton(
-                "ログイン",
-                loading,
                 Modifier
                     .fillMaxWidth()
                     .height(56.dp),
+                R.string.sign_in,
+                loading,
                 LoginSubmit
             )
             Spacer(Modifier.height(6.dp))
             NormalButton(
-                "新規登録",
-                loading,
                 Modifier
                     .fillMaxWidth()
                     .height(56.dp),
+                R.string.sign_up,
+                loading,
                 SignUpSubmit
             )
         }
     }
 }
+
+
 
 
 

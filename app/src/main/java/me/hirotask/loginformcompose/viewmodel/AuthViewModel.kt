@@ -68,8 +68,8 @@ class AuthViewModel : ViewModel() {
         }
     }
 
-    fun signOut() {
-        firebaseAuthRepositoryImpl.signOut()
+    fun signOut(context: Context) {
+        firebaseAuthRepositoryImpl.signOut(context)
     }
 
 }

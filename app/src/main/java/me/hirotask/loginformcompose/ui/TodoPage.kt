@@ -14,10 +14,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
+import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.getDeadline
 import me.hirotask.loginformcompose.model.domain.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerContent
@@ -47,7 +49,7 @@ fun TodoPage(
         },
         topBar = {
             TopAppBar(
-                title = { Text("TODO一覧") },
+                title = { Text(stringResource(id = R.string.todo_list)) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
