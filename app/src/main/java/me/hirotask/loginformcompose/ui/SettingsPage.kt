@@ -7,6 +7,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,14 +17,22 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.DrawerContent
+import me.hirotask.loginformcompose.viewmodel.SettingsViewModel
 
 @Composable
-fun SettingsPage(toTodo: () -> Unit, toLogin: () -> Unit) {
+fun SettingsPage(
+    toTodo: () -> Unit,
+    toLogin: () -> Unit,
+    settingsViewModel: SettingsViewModel = viewModel()
+) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
+
+    val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -62,7 +72,7 @@ fun SettingsPage(toTodo: () -> Unit, toLogin: () -> Unit) {
                 .verticalScroll(rememberScrollState())
         ) {
             SectionTitle(title = "アクセシビリティ")
-            SwitchPreference("バイブレーション", "ボタン押下時の振動: オン")
+            SwitchPreference("バイブレーション", "ボタン押下時の振動: オン", state = settings.vibration)
         }
     }
 }
@@ -110,7 +120,7 @@ private fun SwitchPreference(
     summary: String,
     modifier: Modifier = Modifier,
     icon: ImageVector? = null,
-    defaultState: Boolean = false,
+    state: Boolean = false,
     onCheckedChange: (Boolean) -> Unit = {}
 ) {
     Row(
@@ -132,7 +142,7 @@ private fun SwitchPreference(
                 Text(summary, color = Color.Gray, style = MaterialTheme.typography.body2)
             }
         }
-        Switch(checked = defaultState, onCheckedChange = onCheckedChange)
+        Switch(checked = state, onCheckedChange = onCheckedChange)
     }
 
 
