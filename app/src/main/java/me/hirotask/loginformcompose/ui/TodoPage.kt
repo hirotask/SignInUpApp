@@ -89,11 +89,12 @@ fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
 
     Card(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(12.dp)
             .fillMaxWidth()
             .shadow(2.dp)
     ) {
         Row(
+            modifier = Modifier.padding(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 4.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
