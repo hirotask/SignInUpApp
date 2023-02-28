@@ -56,7 +56,7 @@ fun TodoAddPage(
     val datePickerDialog = DatePickerDialog(
         context,
         { _: DatePicker, myear: Int, mmonth: Int, mday: Int ->
-            date = "$myear/${String.format("%02d", mmonth+1)}/$mday"
+            date = "$myear/${String.format("%02d", mmonth + 1)}/$mday"
         },
         year,
         month,

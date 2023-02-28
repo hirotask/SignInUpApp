@@ -43,52 +43,55 @@ fun LoginPage(
         })
     }
 
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start
-    ) {
-        Icon(
-            painter = rememberVectorPainter(image = Icons.Default.ArrowBack),
-            contentDescription = null,
-            modifier = Modifier
-                .padding(16.dp)
-                .size(32.dp)
-                .clickable(onClick = onPreviousHandler)
-        )
+    Surface {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
         ) {
-            EmailTextField(value = email, modifier = Modifier.fillMaxWidth()) { email = it }
-            Spacer(Modifier.height(4.dp))
-            PasswordTextField(
-                value = password,
-                modifier = Modifier.fillMaxWidth()
-            ) { password = it }
-            Spacer(Modifier.height(12.dp))
-            NormalButton(
-                Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                R.string.sign_in,
-                loading,
-                LoginSubmit
+            Icon(
+                painter = rememberVectorPainter(image = Icons.Default.ArrowBack),
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(32.dp)
+                    .clickable(onClick = onPreviousHandler)
             )
-            Spacer(Modifier.height(6.dp))
-            NormalButton(
-                Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                R.string.sign_up,
-                loading,
-                SignUpSubmit
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                EmailTextField(value = email, modifier = Modifier.fillMaxWidth()) { email = it }
+                Spacer(Modifier.height(4.dp))
+                PasswordTextField(
+                    value = password,
+                    modifier = Modifier.fillMaxWidth()
+                ) { password = it }
+                Spacer(Modifier.height(12.dp))
+                NormalButton(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    R.string.sign_in,
+                    loading,
+                    LoginSubmit
+                )
+                Spacer(Modifier.height(6.dp))
+                NormalButton(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    R.string.sign_up,
+                    loading,
+                    SignUpSubmit
+                )
+            }
         }
     }
+
 }
 
 
