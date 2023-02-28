@@ -7,20 +7,28 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import me.hirotask.loginformcompose.util.VibrationUtil
+import me.hirotask.loginformcompose.util.VibrationUtil.doVibrate
 
 @Composable
 fun NormalButton(
     modifier: Modifier = Modifier,
     @StringRes text: Int,
-    loading : Boolean = false,
+    loading: Boolean = false,
     onClick: () -> Unit,
 ) {
+    val context = LocalContext.current
+
     Button(
-        onClick = onClick, enabled = !loading, modifier = modifier
+        onClick = {
+            onClick()
+            VibrationUtil.getVibrator(context).doVibrate()
+        }, enabled = !loading, modifier = modifier
     ) {
-        if(loading) {
+        if (loading) {
             CircularProgressIndicator(
                 strokeWidth = 2.dp,
                 modifier = Modifier.size(24.dp)

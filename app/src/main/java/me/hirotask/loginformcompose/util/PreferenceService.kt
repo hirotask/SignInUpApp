@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.model.service
+package me.hirotask.loginformcompose.util
 
 import android.content.Context
 import me.hirotask.loginformcompose.model.domain.Settings

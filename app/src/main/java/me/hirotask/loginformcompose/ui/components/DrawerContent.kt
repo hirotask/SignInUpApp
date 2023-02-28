@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
+import me.hirotask.loginformcompose.util.VibrationUtil
+import me.hirotask.loginformcompose.util.VibrationUtil.doVibrate
 import me.hirotask.loginformcompose.viewmodel.AuthViewModel
 
 @Composable
@@ -31,7 +33,7 @@ fun DrawerContent(
     authViewModel: AuthViewModel = viewModel(),
     TodoAction: () -> Unit = {},
     SettingsAction: () -> Unit = {},
-    LogoutAction: () -> Unit = {}
+    LogoutAction: () -> Unit = {},
 ) {
 
     val scope = rememberCoroutineScope()
@@ -60,10 +62,15 @@ fun DrawerText(
     @StringRes text: Int,
     action: () -> Unit = {}
 ) {
+    val context = LocalContext.current
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable(onClick = action)
+            .clickable(onClick = {
+                action()
+                VibrationUtil.getVibrator(context).doVibrate()
+            })
             .fillMaxWidth()
     ) {
         Icon(icon, null)
