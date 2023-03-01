@@ -1,5 +1,6 @@
 package me.hirotask.loginformcompose.ui
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.widget.DatePicker
 import androidx.compose.foundation.clickable
@@ -31,6 +32,7 @@ import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.viewmodel.TodoViewModel
 import java.util.*
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun TodoAddPage(
     toTodo: () -> Unit = {},

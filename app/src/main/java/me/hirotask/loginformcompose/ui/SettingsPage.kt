@@ -1,5 +1,6 @@
 package me.hirotask.loginformcompose.ui
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -23,6 +24,7 @@ import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.viewmodel.SettingsViewModel
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SettingsPage(
     toTodo: () -> Unit,
