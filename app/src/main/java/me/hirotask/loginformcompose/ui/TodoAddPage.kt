@@ -29,7 +29,7 @@ import me.hirotask.loginformcompose.model.domain.Priority
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.viewmodel.TodoViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 import java.util.*
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")

@@ -19,7 +19,7 @@ import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.components.PasswordTextField
-import me.hirotask.loginformcompose.viewmodel.AuthViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 
 @Composable
 fun LoginPage(

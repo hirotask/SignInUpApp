@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.viewmodel
+package me.hirotask.loginformcompose.ui.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

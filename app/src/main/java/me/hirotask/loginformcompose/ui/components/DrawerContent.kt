@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.util.VibrationUtil
 import me.hirotask.loginformcompose.util.VibrationUtil.doVibrate
-import me.hirotask.loginformcompose.viewmodel.AuthViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 
 @Composable
 fun DrawerContent(

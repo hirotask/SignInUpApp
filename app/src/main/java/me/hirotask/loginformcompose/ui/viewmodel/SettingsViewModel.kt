@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.viewmodel
+package me.hirotask.loginformcompose.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

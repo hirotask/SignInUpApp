@@ -25,7 +25,7 @@ import me.hirotask.loginformcompose.getDeadline
 import me.hirotask.loginformcompose.model.domain.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.viewmodel.TodoViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

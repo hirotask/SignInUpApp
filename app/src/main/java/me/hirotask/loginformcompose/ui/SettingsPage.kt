@@ -22,7 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.DrawerContent
-import me.hirotask.loginformcompose.viewmodel.SettingsViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.SettingsViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

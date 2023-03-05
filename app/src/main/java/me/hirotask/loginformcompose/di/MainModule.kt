@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.model
+package me.hirotask.loginformcompose.di
 
 import dagger.Binds
 import dagger.Module

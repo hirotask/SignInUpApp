@@ -15,7 +15,7 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import me.hirotask.loginformcompose.ui.*
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
-import me.hirotask.loginformcompose.viewmodel.AuthViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
