@@ -32,7 +32,7 @@ interface FirestoreRepository {
 
 
 class FirestoreRepositoryImpl @Inject constructor(
-    private val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val database: FirebaseFirestore
 ): FirestoreRepository {
 
     companion object {

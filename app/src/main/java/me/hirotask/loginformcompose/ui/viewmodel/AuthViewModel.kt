@@ -7,7 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepositoryImpl
 import me.hirotask.loginformcompose.model.domain.UserState
 import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
 import javax.inject.Inject
@@ -18,7 +17,7 @@ class AuthViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _userState =
-        MutableStateFlow(UserState(isSignIn = FirebaseAuthRepositoryImpl().currentUser != null))
+        MutableStateFlow(UserState(isSignIn = firebaseAuthRepository.currentUser != null))
     private val _loading = MutableStateFlow(false)
 
     val userState  = _userState.asStateFlow()

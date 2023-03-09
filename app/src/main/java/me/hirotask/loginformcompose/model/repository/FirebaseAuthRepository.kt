@@ -4,9 +4,8 @@ import android.content.Context
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.R
@@ -34,9 +33,11 @@ interface FirebaseAuthRepository {
     fun signOut(context: Context)
 }
 
-class FirebaseAuthRepositoryImpl @Inject constructor(): FirebaseAuthRepository {
+class FirebaseAuthRepositoryImpl @Inject constructor(
+    private val auth: FirebaseAuth
+): FirebaseAuthRepository {
 
-    override val currentUser get() = Firebase.auth.currentUser
+    override val currentUser get() = auth.currentUser
 
     override suspend fun signIn(
         email: String,
@@ -46,7 +47,7 @@ class FirebaseAuthRepositoryImpl @Inject constructor(): FirebaseAuthRepository {
         onFailure: () -> Unit
     ) =
         withContext(Dispatchers.IO) {
-            Firebase.auth.signInWithEmailAndPassword(
+            auth.signInWithEmailAndPassword(
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -69,7 +70,7 @@ class FirebaseAuthRepositoryImpl @Inject constructor(): FirebaseAuthRepository {
     ) =
 
         withContext(Dispatchers.IO) {
-            Firebase.auth.createUserWithEmailAndPassword(
+            auth.createUserWithEmailAndPassword(
                 email, password
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -83,7 +84,7 @@ class FirebaseAuthRepositoryImpl @Inject constructor(): FirebaseAuthRepository {
         }
 
     override fun signOut(context: Context) {
-        Firebase.auth.signOut()
+        auth.signOut()
         Toast.makeText(context, R.string.signout_success, Toast.LENGTH_LONG).show()
     }
 
