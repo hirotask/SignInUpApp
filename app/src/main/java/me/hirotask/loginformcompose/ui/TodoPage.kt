@@ -25,6 +25,7 @@ import me.hirotask.loginformcompose.getDeadline
 import me.hirotask.loginformcompose.domain.domainobject.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
+import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -33,21 +34,28 @@ fun TodoPage(
     toLogin: () -> Unit = {},
     toSetting: () -> Unit = {},
     toAdd: () -> Unit = {},
-    todoViewModel: TodoViewModel = viewModel()
+    todoViewModel: TodoViewModel = viewModel(),
+    authViewModel: AuthViewModel = viewModel()
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
     val todoList by todoViewModel.list.collectAsState()
+    todoViewModel.fetchTodoList()
 
     Scaffold(
         scaffoldState = scaffoldState,
         drawerContent = {
-            DrawerContent(scaffoldState = scaffoldState, SettingsAction = {
-                toSetting()
-            }, LogoutAction = {
-                toLogin()
-            })
+            DrawerContent(
+                scaffoldState = scaffoldState,
+                SettingsAction = {
+                    toSetting()
+                },
+                LogoutAction = {
+                    toLogin()
+                },
+                authViewModel = authViewModel
+            )
         },
         topBar = {
             TopAppBar(

@@ -26,10 +26,6 @@ class TodoViewModel @Inject constructor(
     val list: StateFlow<List<Todo>> = _list.asStateFlow()
     val loading: StateFlow<Boolean> = _loading.asStateFlow()
 
-    init {
-        fetchTodoList()
-    }
-
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
         val todo = Todo.create(content, priority, limit, memo, false)
@@ -55,7 +51,7 @@ class TodoViewModel @Inject constructor(
         }
     }
 
-    private fun fetchTodoList() {
+    fun fetchTodoList() {
         val currentUser = firebaseAuthRepository.currentUser
         currentUser?.let {
             viewModelScope.launch {

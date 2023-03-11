@@ -7,15 +7,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import me.hirotask.loginformcompose.ui.*
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
+import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -23,7 +24,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoginFormComposeTheme {
-                MyApp()
+                val authViewModel = hiltViewModel<AuthViewModel>()
+                val todoViewModel = hiltViewModel<TodoViewModel>()
+
+                MyApp(authViewModel, todoViewModel)
             }
         }
     }
@@ -32,7 +36,8 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun MyApp(
-    authViewModel: AuthViewModel = viewModel()
+    authViewModel: AuthViewModel = viewModel(),
+    todoViewModel: TodoViewModel = viewModel()
 ) {
     val navController = rememberNavController()
     val userState by authViewModel.userState.collectAsState()
@@ -55,7 +60,8 @@ fun MyApp(
                 onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
                 onSignInHandler = {
                     navController.navigate(Routing.Todo.destination)
-                }
+                },
+                authViewModel
             )
         }
         composable(Routing.Todo.destination) {
@@ -68,8 +74,9 @@ fun MyApp(
                 },
                 toAdd = {
                     navController.navigate(Routing.TodoAdd.destination)
-                }
-
+                },
+                todoViewModel,
+                authViewModel
             )
         }
         composable(Routing.TodoAdd.destination) {
@@ -79,7 +86,8 @@ fun MyApp(
                 },
                 onAddTodo = {
                     navController.navigate(Routing.Todo.destination)
-                }
+                },
+                todoViewModel
             )
         }
         composable(Routing.Settings.destination) {
@@ -89,7 +97,6 @@ fun MyApp(
                 },
                 toLogin = {
                     navController.navigate(Routing.Login.destination)
-
                 }
             )
         }
