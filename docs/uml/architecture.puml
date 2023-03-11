@@ -1,0 +1,45 @@
+@startuml app_architecture_class_diagram
+package "Ui Layer" {
+    package "View" {
+        object Composable
+    }
+
+    package "Ui Logics" {
+        class ViewModel
+    }
+
+    package "Ui Models" {
+        class UiModel
+    }
+}
+
+package "Application Layer" {
+    class UseCaseImpl
+    interface UseCase
+}
+
+package "Domain Layer" {
+    class DomainObject
+    interface Repository
+}
+
+package "Data Layer" {
+    class DataSource
+    class RepositoryImpl
+}
+
+' UI Layer Relations
+Composable <.. ViewModel
+ViewModel o- UiModel
+
+' Application Layer Relations
+ViewModel <.. UseCase
+UseCase <|.. UseCaseImpl
+
+' Domain/Data Layer Relations
+UseCaseImpl <.. Repository
+Repository <|.. RepositoryImpl
+RepositoryImpl o- DataSource
+RepositoryImpl -- DomainObject
+
+@enduml

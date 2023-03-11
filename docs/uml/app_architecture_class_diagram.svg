@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="644px" preserveAspectRatio="none" style="width:519px;height:644px;background:#FFFFFF;" version="1.1" viewBox="0 0 519 644" width="519px" zoomAndPan="magnify"><defs/><g><!--MD5=[72055db8963fdd76e8d4529785390c88]
+cluster Ui Layer--><g id="cluster_Ui Layer"><path d="M184.5,6 L243.5,6 A3.75,3.75 0 0 1 246,8.5 L253,28.4883 L509.5,28.4883 A2.5,2.5 0 0 1 512,30.9883 L512,280.5 A2.5,2.5 0 0 1 509.5,283 L184.5,283 A2.5,2.5 0 0 1 182,280.5 L182,8.5 A2.5,2.5 0 0 1 184.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="182" x2="253" y1="28.4883" y2="28.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="58" x="186" y="21.5352">Ui Layer</text></g><!--MD5=[e320b41f2d43b11d6de1346cab4ea5fc]
+cluster View--><g id="cluster_View"><path d="M355.5,49 L391.5,49 A3.75,3.75 0 0 1 394,51.5 L401,71.4883 L482.5,71.4883 A2.5,2.5 0 0 1 485,73.9883 L485,133.5 A2.5,2.5 0 0 1 482.5,136 L355.5,136 A2.5,2.5 0 0 1 353,133.5 L353,51.5 A2.5,2.5 0 0 1 355.5,49 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="353" x2="401" y1="71.4883" y2="71.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="357" y="64.5352">View</text></g><!--MD5=[e3baf1559ca8727d83d98ab8985efcf8]
+cluster Ui Logics--><g id="cluster_Ui Logics"><path d="M352.5,160 L419.5,160 A3.75,3.75 0 0 1 422,162.5 L429,182.4883 L485.5,182.4883 A2.5,2.5 0 0 1 488,184.9883 L488,256.5 A2.5,2.5 0 0 1 485.5,259 L352.5,259 A2.5,2.5 0 0 1 350,256.5 L350,162.5 A2.5,2.5 0 0 1 352.5,160 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="350" x2="429" y1="182.4883" y2="182.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="66" x="354" y="175.5352">Ui Logics</text></g><!--MD5=[75e0db4feba6859231945fe749018899]
+cluster Ui Models--><g id="cluster_Ui Models"><path d="M208.5,160 L281.5,160 A3.75,3.75 0 0 1 284,162.5 L291,182.4883 L323.5,182.4883 A2.5,2.5 0 0 1 326,184.9883 L326,256.5 A2.5,2.5 0 0 1 323.5,259 L208.5,259 A2.5,2.5 0 0 1 206,256.5 L206,162.5 A2.5,2.5 0 0 1 208.5,160 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="206" x2="291" y1="182.4883" y2="182.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="72" x="210" y="175.5352">Ui Models</text></g><!--MD5=[de6cf97a447c0cb999a0ecd0089df131]
+cluster Application Layer--><g id="cluster_Application Layer"><path d="M345.5,307 L471.5,307 A3.75,3.75 0 0 1 474,309.5 L481,329.4883 L492.5,329.4883 A2.5,2.5 0 0 1 495,331.9883 L495,511.5 A2.5,2.5 0 0 1 492.5,514 L345.5,514 A2.5,2.5 0 0 1 343,511.5 L343,309.5 A2.5,2.5 0 0 1 345.5,307 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="343" x2="481" y1="329.4883" y2="329.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="347" y="322.5352">Application Layer</text></g><!--MD5=[cc167570a590d8dbd4742108b55f98b1]
+cluster Domain Layer--><g id="cluster_Domain Layer"><path d="M11.5,538 L111.5,538 A3.75,3.75 0 0 1 114,540.5 L121,560.4883 L308.5,560.4883 A2.5,2.5 0 0 1 311,562.9883 L311,634.5 A2.5,2.5 0 0 1 308.5,637 L11.5,637 A2.5,2.5 0 0 1 9,634.5 L9,540.5 A2.5,2.5 0 0 1 11.5,538 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="9" x2="121" y1="560.4883" y2="560.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="99" x="13" y="553.5352">Domain Layer</text></g><!--MD5=[023fe2768d341cd525e8503fdfbee177]
+cluster Data Layer--><g id="cluster_Data Layer"><path d="M8.5,415 L85.5,415 A3.75,3.75 0 0 1 88,417.5 L95,437.4883 L316.5,437.4883 A2.5,2.5 0 0 1 319,439.9883 L319,511.5 A2.5,2.5 0 0 1 316.5,514 L8.5,514 A2.5,2.5 0 0 1 6,511.5 L6,417.5 A2.5,2.5 0 0 1 8.5,415 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="95" y1="437.4883" y2="437.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="76" x="10" y="430.5352">Data Layer</text></g><g id="elem_Composable"><rect fill="#F1F1F1" height="36.4883" style="stroke:#181818;stroke-width:0.5;" width="100" x="369" y="84"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="376" y="99.5352">Composable</text><line style="stroke:#181818;stroke-width:0.5;" x1="370" x2="468" y1="104.4883" y2="104.4883"/></g><!--MD5=[b1d46488418bc0cd55cf54b5fc017696]
+class ViewModel--><g id="elem_ViewModel"><rect codeLine="7" fill="#F1F1F1" height="48" id="ViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="106" x="366" y="195"/><ellipse cx="381" cy="211" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M383.4731,217.1431 Q382.8921,217.4419 382.2529,217.5913 Q381.6138,217.7407 380.9082,217.7407 Q378.4014,217.7407 377.0815,216.0889 Q375.7617,214.437 375.7617,211.3159 Q375.7617,208.1865 377.0815,206.5347 Q378.4014,204.8828 380.9082,204.8828 Q381.6138,204.8828 382.2612,205.0322 Q382.9087,205.1816 383.4731,205.4805 L383.4731,208.2031 Q382.8423,207.6221 382.2488,207.3523 Q381.6553,207.0825 381.0244,207.0825 Q379.6797,207.0825 378.9949,208.1492 Q378.3101,209.2158 378.3101,211.3159 Q378.3101,213.4077 378.9949,214.4744 Q379.6797,215.541 381.0244,215.541 Q381.6553,215.541 382.2488,215.2712 Q382.8423,215.0015 383.4731,214.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="395" y="216.291">ViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="367" x2="471" y1="227" y2="227"/><line style="stroke:#181818;stroke-width:0.5;" x1="367" x2="471" y1="235" y2="235"/></g><!--MD5=[ee8b80864d6870093fae3b1e44784ee4]
+class UiModel--><g id="elem_UiModel"><rect codeLine="11" fill="#F1F1F1" height="48" id="UiModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="88" x="222" y="195"/><ellipse cx="237" cy="211" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M239.4731,217.1431 Q238.8921,217.4419 238.2529,217.5913 Q237.6138,217.7407 236.9082,217.7407 Q234.4014,217.7407 233.0815,216.0889 Q231.7617,214.437 231.7617,211.3159 Q231.7617,208.1865 233.0815,206.5347 Q234.4014,204.8828 236.9082,204.8828 Q237.6138,204.8828 238.2612,205.0322 Q238.9087,205.1816 239.4731,205.4805 L239.4731,208.2031 Q238.8423,207.6221 238.2488,207.3523 Q237.6553,207.0825 237.0244,207.0825 Q235.6797,207.0825 234.9949,208.1492 Q234.3101,209.2158 234.3101,211.3159 Q234.3101,213.4077 234.9949,214.4744 Q235.6797,215.541 237.0244,215.541 Q237.6553,215.541 238.2488,215.2712 Q238.8423,215.0015 239.4731,214.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="251" y="216.291">UiModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="223" x2="309" y1="227" y2="227"/><line style="stroke:#181818;stroke-width:0.5;" x1="223" x2="309" y1="235" y2="235"/></g><!--MD5=[e2cde9ee4021f28b0201d1be918cb01d]
+class UseCaseImpl--><g id="elem_UseCaseImpl"><rect codeLine="16" fill="#F1F1F1" height="48" id="UseCaseImpl" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="120" x="359" y="450"/><ellipse cx="374" cy="466" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M376.4731,472.1431 Q375.8921,472.4419 375.2529,472.5913 Q374.6138,472.7407 373.9082,472.7407 Q371.4014,472.7407 370.0815,471.0889 Q368.7617,469.437 368.7617,466.3159 Q368.7617,463.1865 370.0815,461.5347 Q371.4014,459.8828 373.9082,459.8828 Q374.6138,459.8828 375.2612,460.0322 Q375.9087,460.1816 376.4731,460.4805 L376.4731,463.2031 Q375.8423,462.6221 375.2488,462.3523 Q374.6553,462.0825 374.0244,462.0825 Q372.6797,462.0825 371.9949,463.1492 Q371.3101,464.2158 371.3101,466.3159 Q371.3101,468.4077 371.9949,469.4744 Q372.6797,470.541 374.0244,470.541 Q374.6553,470.541 375.2488,470.2712 Q375.8423,470.0015 376.4731,469.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="388" y="471.291">UseCaseImpl</text><line style="stroke:#181818;stroke-width:0.5;" x1="360" x2="478" y1="482" y2="482"/><line style="stroke:#181818;stroke-width:0.5;" x1="360" x2="478" y1="490" y2="490"/></g><!--MD5=[bfd2418b046a7d4e4bea09e7ac87d703]
+class UseCase--><g id="elem_UseCase"><rect codeLine="17" fill="#F1F1F1" height="48" id="UseCase" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="90" x="374" y="342"/><ellipse cx="389" cy="358" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M385.4277,354.2651 L385.4277,352.1069 L392.8071,352.1069 L392.8071,354.2651 L390.3418,354.2651 L390.3418,362.3418 L392.8071,362.3418 L392.8071,364.5 L385.4277,364.5 L385.4277,362.3418 L387.8931,362.3418 L387.8931,354.2651 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="58" x="403" y="363.291">UseCase</text><line style="stroke:#181818;stroke-width:0.5;" x1="375" x2="463" y1="374" y2="374"/><line style="stroke:#181818;stroke-width:0.5;" x1="375" x2="463" y1="382" y2="382"/></g><!--MD5=[0f565901def650a4b8c0802491169dd0]
+class DomainObject--><g id="elem_DomainObject"><rect codeLine="21" fill="#F1F1F1" height="48" id="DomainObject" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="25.5" y="573"/><ellipse cx="40.5" cy="589" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M42.9731,595.1431 Q42.3921,595.4419 41.7529,595.5913 Q41.1138,595.7407 40.4082,595.7407 Q37.9014,595.7407 36.5815,594.0889 Q35.2617,592.437 35.2617,589.3159 Q35.2617,586.1865 36.5815,584.5347 Q37.9014,582.8828 40.4082,582.8828 Q41.1138,582.8828 41.7612,583.0322 Q42.4087,583.1816 42.9731,583.4805 L42.9731,586.2031 Q42.3423,585.6221 41.7488,585.3523 Q41.1553,585.0825 40.5244,585.0825 Q39.1797,585.0825 38.4949,586.1492 Q37.8101,587.2158 37.8101,589.3159 Q37.8101,591.4077 38.4949,592.4744 Q39.1797,593.541 40.5244,593.541 Q41.1553,593.541 41.7488,593.2712 Q42.3423,593.0015 42.9731,592.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="54.5" y="594.291">DomainObject</text><line style="stroke:#181818;stroke-width:0.5;" x1="26.5" x2="153.5" y1="605" y2="605"/><line style="stroke:#181818;stroke-width:0.5;" x1="26.5" x2="153.5" y1="613" y2="613"/></g><!--MD5=[c05f8d4c5007184b0fb1ea93cdb8d9fe]
+class Repository--><g id="elem_Repository"><rect codeLine="22" fill="#F1F1F1" height="48" id="Repository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="189.5" y="573"/><ellipse cx="204.5" cy="589" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M200.9277,585.2651 L200.9277,583.1069 L208.3071,583.1069 L208.3071,585.2651 L205.8418,585.2651 L205.8418,593.3418 L208.3071,593.3418 L208.3071,595.5 L200.9277,595.5 L200.9277,593.3418 L203.3931,593.3418 L203.3931,585.2651 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="73" x="218.5" y="594.291">Repository</text><line style="stroke:#181818;stroke-width:0.5;" x1="190.5" x2="293.5" y1="605" y2="605"/><line style="stroke:#181818;stroke-width:0.5;" x1="190.5" x2="293.5" y1="613" y2="613"/></g><!--MD5=[81c1678f3b146417d42d9549aee5a5c0]
+class DataSource--><g id="elem_DataSource"><rect codeLine="26" fill="#F1F1F1" height="48" id="DataSource" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="110" x="193" y="450"/><ellipse cx="208" cy="466" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M210.4731,472.1431 Q209.8921,472.4419 209.2529,472.5913 Q208.6138,472.7407 207.9082,472.7407 Q205.4014,472.7407 204.0815,471.0889 Q202.7617,469.437 202.7617,466.3159 Q202.7617,463.1865 204.0815,461.5347 Q205.4014,459.8828 207.9082,459.8828 Q208.6138,459.8828 209.2612,460.0322 Q209.9087,460.1816 210.4731,460.4805 L210.4731,463.2031 Q209.8423,462.6221 209.2488,462.3523 Q208.6553,462.0825 208.0244,462.0825 Q206.6797,462.0825 205.9949,463.1492 Q205.3101,464.2158 205.3101,466.3159 Q205.3101,468.4077 205.9949,469.4744 Q206.6797,470.541 208.0244,470.541 Q208.6553,470.541 209.2488,470.2712 Q209.8423,470.0015 210.4731,469.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="222" y="471.291">DataSource</text><line style="stroke:#181818;stroke-width:0.5;" x1="194" x2="302" y1="482" y2="482"/><line style="stroke:#181818;stroke-width:0.5;" x1="194" x2="302" y1="490" y2="490"/></g><!--MD5=[6f9d70d0c5933597404f248c726eda22]
+class RepositoryImpl--><g id="elem_RepositoryImpl"><rect codeLine="27" fill="#F1F1F1" height="48" id="RepositoryImpl" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="135" x="22.5" y="450"/><ellipse cx="37.5" cy="466" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M39.9731,472.1431 Q39.3921,472.4419 38.7529,472.5913 Q38.1138,472.7407 37.4082,472.7407 Q34.9014,472.7407 33.5815,471.0889 Q32.2617,469.437 32.2617,466.3159 Q32.2617,463.1865 33.5815,461.5347 Q34.9014,459.8828 37.4082,459.8828 Q38.1138,459.8828 38.7612,460.0322 Q39.4087,460.1816 39.9731,460.4805 L39.9731,463.2031 Q39.3423,462.6221 38.7488,462.3523 Q38.1553,462.0825 37.5244,462.0825 Q36.1797,462.0825 35.4949,463.1492 Q34.8101,464.2158 34.8101,466.3159 Q34.8101,468.4077 35.4949,469.4744 Q36.1797,470.541 37.5244,470.541 Q38.1553,470.541 38.7488,470.2712 Q39.3423,470.0015 39.9731,469.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="51.5" y="471.291">RepositoryImpl</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="156.5" y1="482" y2="482"/><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="156.5" y1="490" y2="490"/></g><!--MD5=[6356d890cd60adf13c3eed8b95ba3540]
+reverse link Composable to ViewModel--><g id="link_Composable_ViewModel"><path codeLine="31" d="M419,126.88 C419,146.81 419,175.05 419,194.79 " fill="none" id="Composable-backto-ViewModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="419,121.98,415,130.98,419,126.98,423,130.98,419,121.98" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[96e96825262202f9234472ca11d77cd6]
+reverse link ViewModel to UiModel--><g id="link_ViewModel_UiModel"><path codeLine="32" d="M351.54,219 C337.77,219 324,219 310.23,219 " fill="none" id="ViewModel-backto-UiModel" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="364.37,219,358.37,215,352.37,219,358.37,223,364.37,219" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bed8d89edb5413914b19d832221706e9]
+reverse link ViewModel to UseCase--><g id="link_ViewModel_UseCase"><path codeLine="35" d="M419,249.59 C419,276.85 419,316.73 419,341.76 " fill="none" id="ViewModel-backto-UseCase" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="419,244.81,415,253.81,419,249.81,423,253.81,419,244.81" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[42b6b708b8eb548db531819d0fb8c7bc]
+reverse link UseCase to UseCaseImpl--><g id="link_UseCase_UseCaseImpl"><path codeLine="36" d="M419,411.72 C419,424.82 419,438.62 419,449.79 " fill="none" id="UseCase-backto-UseCaseImpl" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="412,411.78,419,391.78,426,411.78,412,411.78" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4377c75eb1c5c86b0565b4b95d170305]
+reverse link UseCaseImpl to Repository--><g id="link_UseCaseImpl_Repository"><path codeLine="39" d="M379.62,501.92 C348.64,523.1 305.92,552.31 276.32,572.54 " fill="none" id="UseCaseImpl-backto-Repository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="383.62,499.18,373.9304,500.9441,379.4886,501.9962,378.4364,507.5544,383.62,499.18" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dc96d55cc084c550d890902c9587c875]
+reverse link Repository to RepositoryImpl--><g id="link_Repository_RepositoryImpl"><path codeLine="40" d="M203.91,557.94 C193.83,548.47 182.75,538.58 172,530 C158.06,518.88 141.92,507.72 127.66,498.39 " fill="none" id="Repository-backto-RepositoryImpl" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="208.59,552.72,218.13,571.64,198.87,562.8,208.59,552.72" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[97da8ff463db5a02e6853e7d3835590b]
+reverse link RepositoryImpl to DataSource--><g id="link_RepositoryImpl_DataSource"><path codeLine="41" d="M172.32,474 C179.13,474 185.93,474 192.74,474 " fill="none" id="RepositoryImpl-backto-DataSource" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="159.4,474,165.4,478,171.4,474,165.4,470,159.4,474" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4c1652dd371e5142263aac04a8adcc0c]
+link RepositoryImpl to DomainObject--><g id="link_RepositoryImpl_DomainObject"><path codeLine="42" d="M90,498.33 C90,519.76 90,551.34 90,572.74 " fill="none" id="RepositoryImpl-DomainObject" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cef2ab2d61dadc738468ce2fb85b3309]
+@startuml app_architecture_class_diagram
+package "Ui Layer" {
+    package "View" {
+        object Composable
+    }
+
+    package "Ui Logics" {
+        class ViewModel
+    }
+
+    package "Ui Models" {
+        class UiModel
+    }
+}
+
+package "Application Layer" {
+    class UseCaseImpl
+    interface UseCase
+}
+
+package "Domain Layer" {
+    class DomainObject
+    interface Repository
+}
+
+package "Data Layer" {
+    class DataSource
+    class RepositoryImpl
+}
+
+' UI Layer Relations
+Composable <.. ViewModel
+ViewModel o- UiModel
+
+' Application Layer Relations
+ViewModel <.. UseCase
+UseCase <|.. UseCaseImpl
+
+' Domain/Data Layer Relations
+UseCaseImpl <.. Repository
+Repository <|.. RepositoryImpl
+RepositoryImpl o- DataSource
+RepositoryImpl - - DomainObject
+
+@enduml
+
+@startuml app_architecture_class_diagram
+package "Ui Layer" {
+    package "View" {
+        object Composable
+    }
+
+    package "Ui Logics" {
+        class ViewModel
+    }
+
+    package "Ui Models" {
+        class UiModel
+    }
+}
+
+package "Application Layer" {
+    class UseCaseImpl
+    interface UseCase
+}
+
+package "Domain Layer" {
+    class DomainObject
+    interface Repository
+}
+
+package "Data Layer" {
+    class DataSource
+    class RepositoryImpl
+}
+
+Composable <.. ViewModel
+ViewModel o- UiModel
+
+ViewModel <.. UseCase
+UseCase <|.. UseCaseImpl
+
+UseCaseImpl <.. Repository
+Repository <|.. RepositoryImpl
+RepositoryImpl o- DataSource
+RepositoryImpl - - DomainObject
+
+@enduml
+
+PlantUML version 1.2022.7(Tue Aug 23 02:01:30 JST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ja
+Country: JP
+--></g></svg>
