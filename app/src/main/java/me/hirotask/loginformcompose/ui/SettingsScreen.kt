@@ -26,7 +26,7 @@ import me.hirotask.loginformcompose.ui.viewmodel.SettingsViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun SettingsPage(
+fun SettingsScreen(
     toTodo: () -> Unit,
     toLogin: () -> Unit,
     settingsViewModel: SettingsViewModel = viewModel()

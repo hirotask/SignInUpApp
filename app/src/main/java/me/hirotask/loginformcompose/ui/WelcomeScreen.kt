@@ -13,7 +13,7 @@ import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.NormalButton
 
 @Composable
-fun WelcomePage(
+fun WelcomeScreen(
     onClickHandler: () -> Unit = {},
 ) {
     Surface {

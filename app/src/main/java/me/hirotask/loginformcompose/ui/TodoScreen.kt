@@ -30,7 +30,7 @@ import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun TodoPage(
+fun TodoScreen(
     toLogin: () -> Unit = {},
     toSetting: () -> Unit = {},
     toAdd: () -> Unit = {},
@@ -126,6 +126,6 @@ fun CardTodoListItem(task: Task, onCompleteTodo: () -> Unit = {}) {
 @Composable
 fun TodoPagePreview() {
     LoginFormComposeTheme {
-        TodoPage()
+        TodoScreen()
     }
 }

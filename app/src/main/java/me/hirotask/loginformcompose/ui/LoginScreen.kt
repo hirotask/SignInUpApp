@@ -22,7 +22,7 @@ import me.hirotask.loginformcompose.ui.components.PasswordTextField
 import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 
 @Composable
-fun LoginPage(
+fun LoginScreen(
     onPreviousHandler: () -> Unit = {},
     onSignInHandler: () -> Unit = {},
     authViewModel: AuthViewModel = viewModel()
@@ -105,7 +105,7 @@ fun PreviewLoginForm() {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        LoginPage()
+        LoginScreen()
     }
 }
 

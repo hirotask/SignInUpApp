@@ -48,7 +48,7 @@ fun MyApp(
 
     NavHost(navController = navController, startDestination = startDestination) {
         composable(Routing.Welcome.destination) {
-            WelcomePage(
+            WelcomeScreen(
                 onClickHandler = {
                     navController.navigate(Routing.Login.destination)
                 },
@@ -56,7 +56,7 @@ fun MyApp(
 
         }
         composable(Routing.Login.destination) {
-            LoginPage(
+            LoginScreen(
                 onPreviousHandler = { navController.navigate(Routing.Welcome.destination) },
                 onSignInHandler = {
                     navController.navigate(Routing.Todo.destination)
@@ -65,7 +65,7 @@ fun MyApp(
             )
         }
         composable(Routing.Todo.destination) {
-            TodoPage(
+            TodoScreen(
                 toLogin = {
                     navController.navigate(Routing.Login.destination)
                 },
@@ -80,7 +80,7 @@ fun MyApp(
             )
         }
         composable(Routing.TodoAdd.destination) {
-            TodoAddPage(
+            TodoAddScreen(
                 toTodo = {
                     navController.navigate(Routing.Todo.destination)
                 },
@@ -91,7 +91,7 @@ fun MyApp(
             )
         }
         composable(Routing.Settings.destination) {
-            SettingsPage(
+            SettingsScreen(
                 toTodo = {
                     navController.navigate(Routing.Todo.destination)
                 },

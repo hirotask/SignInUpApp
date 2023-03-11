@@ -34,7 +34,7 @@ import java.util.*
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun TodoAddPage(
+fun TodoAddScreen(
     toTodo: () -> Unit = {},
     onAddTodo: () -> Unit = {},
     todoViewModel: TodoViewModel = viewModel()
@@ -215,6 +215,6 @@ fun TodoAddPage(
 @Composable
 fun TodoAddPagePreview() {
     LoginFormComposeTheme {
-        TodoAddPage()
+        TodoAddScreen()
     }
 }
