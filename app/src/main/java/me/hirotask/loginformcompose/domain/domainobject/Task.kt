@@ -3,7 +3,7 @@ package me.hirotask.loginformcompose.domain.domainobject
 import com.google.firebase.Timestamp
 import java.util.*
 
-data class Todo(
+data class Task(
     val id: String,
     val time: Long,
     val content: String,
@@ -14,13 +14,13 @@ data class Todo(
 ) {
     companion object {
         fun create(content: String, priority: String, limit: Date, memo: String, isComplete: Boolean) =
-            Todo(UUID.randomUUID().toString(), Date().time, content, priority, limit, memo, isComplete)
+            Task(UUID.randomUUID().toString(), Date().time, content, priority, limit, memo, isComplete)
     }
 
-    fun getCompleted(): Todo = this.copy(isComplete = true)
+    fun getCompleted(): Task = this.copy(isComplete = true)
 }
 
-fun Todo.toMap(): Map<String, *> {
+fun Task.toMap(): Map<String, *> {
     return hashMapOf(
         "id" to id,
         "time" to time,
@@ -32,9 +32,9 @@ fun Todo.toMap(): Map<String, *> {
     )
 }
 
-fun List<Todo>.getCompleted(todo: Todo): List<Todo> {
+fun List<Task>.getCompleted(task: Task): List<Task> {
     return this.map {
-        if (it.id == todo.id) {
+        if (it.id == task.id) {
             it.getCompleted()
         } else {
             it
@@ -42,7 +42,7 @@ fun List<Todo>.getCompleted(todo: Todo): List<Todo> {
     }
 }
 
-fun Map<String, Any>.toTodo(): Todo {
+fun Map<String, Any>.toTodo(): Task {
     val id: String = this["id"] as String
     val time: Long = this["time"] as Long
     val content: String = this["content"] as String
@@ -52,7 +52,7 @@ fun Map<String, Any>.toTodo(): Todo {
     val priority: String = this["priority"] as String
     val isComplete: Boolean = this["isComplete"] as Boolean
 
-    return Todo(
+    return Task(
         id = id,
         time = time,
         content = content,

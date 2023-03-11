@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.domain.domainobject.Todo
+import me.hirotask.loginformcompose.domain.domainobject.Task
 import me.hirotask.loginformcompose.domain.domainobject.getCompleted
 import me.hirotask.loginformcompose.domain.repository.FirebaseAuthRepository
 import me.hirotask.loginformcompose.domain.repository.FirestoreRepository
@@ -20,32 +20,32 @@ class TodoViewModel @Inject constructor(
     private val firebaseAuthRepository: FirebaseAuthRepository
 ): ViewModel() {
 
-    private val _list: MutableStateFlow<List<Todo>> = MutableStateFlow(listOf())
+    private val _list: MutableStateFlow<List<Task>> = MutableStateFlow(listOf())
     private val _loading = MutableStateFlow(false)
 
-    val list: StateFlow<List<Todo>> = _list.asStateFlow()
+    val list: StateFlow<List<Task>> = _list.asStateFlow()
     val loading: StateFlow<Boolean> = _loading.asStateFlow()
 
     fun addTodo(content: String, priority: String, limit: Date, memo: String): Boolean {
         _loading.value = true
-        val todo = Todo.create(content, priority, limit, memo, false)
+        val task = Task.create(content, priority, limit, memo, false)
         val currentUser = firebaseAuthRepository.currentUser ?: return false
 
         val uid = currentUser.uid
 
         viewModelScope.launch {
-            firestoreRepository.addTodo(uid, todo)
+            firestoreRepository.addTodo(uid, task)
         }
         _loading.value = false
         return true
     }
 
-    fun completeTodo(todo: Todo) {
+    fun completeTodo(task: Task) {
         viewModelScope.launch {
             firebaseAuthRepository.currentUser?.let { user ->
                 val uid = user.uid
-                firestoreRepository.completeTodo(uid, todo.id, onSuccess = {
-                    _list.value = _list.value.getCompleted(todo)
+                firestoreRepository.completeTodo(uid, task.id, onSuccess = {
+                    _list.value = _list.value.getCompleted(task)
                 })
             }
         }

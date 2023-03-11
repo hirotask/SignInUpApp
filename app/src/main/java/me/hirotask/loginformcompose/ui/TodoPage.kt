@@ -22,7 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.getDeadline
-import me.hirotask.loginformcompose.domain.domainobject.Todo
+import me.hirotask.loginformcompose.domain.domainobject.Task
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
@@ -85,7 +85,7 @@ fun TodoPage(
     ) {
         LazyColumn {
             items(todoList) { todo ->
-                CardTodoListItem(todo = todo) {
+                CardTodoListItem(task = todo) {
                     todoViewModel.completeTodo(todo)
                 }
             }
@@ -94,8 +94,8 @@ fun TodoPage(
 }
 
 @Composable
-fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
-    if (todo.isComplete) return
+fun CardTodoListItem(task: Task, onCompleteTodo: () -> Unit = {}) {
+    if (task.isComplete) return
 
     Card(
         modifier = Modifier
@@ -109,11 +109,11 @@ fun CardTodoListItem(todo: Todo, onCompleteTodo: () -> Unit = {}) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Text(text = todo.content, style = MaterialTheme.typography.h5)
-                Text(text = "優先度:${todo.priority}", style = MaterialTheme.typography.body1)
-                Text(text = "期限:${todo.limit.getDeadline()}日後")
+                Text(text = task.content, style = MaterialTheme.typography.h5)
+                Text(text = "優先度:${task.priority}", style = MaterialTheme.typography.body1)
+                Text(text = "期限:${task.limit.getDeadline()}日後")
             }
-            Checkbox(checked = todo.isComplete, onCheckedChange = {
+            Checkbox(checked = task.isComplete, onCheckedChange = {
                 onCompleteTodo()
             })
         }

@@ -3,7 +3,7 @@ package me.hirotask.loginformcompose.data.repository
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import me.hirotask.loginformcompose.domain.domainobject.Todo
+import me.hirotask.loginformcompose.domain.domainobject.Task
 import me.hirotask.loginformcompose.domain.domainobject.toMap
 import me.hirotask.loginformcompose.domain.domainobject.toTodo
 import me.hirotask.loginformcompose.domain.repository.FirestoreRepository
@@ -18,11 +18,11 @@ class FirestoreRepositoryImpl @Inject constructor(
         const val DOCUMENT = "users"
     }
 
-    override suspend fun addTodo(userUUID: String, todo: Todo): Boolean = withContext(Dispatchers.IO) {
+    override suspend fun addTodo(userUUID: String, task: Task): Boolean = withContext(Dispatchers.IO) {
         try {
             val collection = database.collection(COLLECTION).document(DOCUMENT).collection(userUUID)
-            val document = collection.document(todo.id)
-            val data = todo.toMap()
+            val document = collection.document(task.id)
+            val data = task.toMap()
             return@withContext document.set(data).isSuccessful
         } catch (e: Exception) {
             e.printStackTrace()
@@ -32,8 +32,8 @@ class FirestoreRepositoryImpl @Inject constructor(
 
     override suspend fun fetchTodo(
         userUUID: String,
-        onSuccess: (List<Todo>) -> Unit,
-        onFailure: (List<Todo>) -> Unit
+        onSuccess: (List<Task>) -> Unit,
+        onFailure: (List<Task>) -> Unit
     ) = withContext(Dispatchers.IO) {
         val collection = database.collection(COLLECTION).document(DOCUMENT).collection(userUUID)
         collection.limit(20).get().addOnCompleteListener { task ->
