@@ -7,8 +7,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.model.domain.UserState
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
+import me.hirotask.loginformcompose.domain.domainobject.UserState
+import me.hirotask.loginformcompose.domain.repository.FirebaseAuthRepository
 import javax.inject.Inject
 
 @HiltViewModel

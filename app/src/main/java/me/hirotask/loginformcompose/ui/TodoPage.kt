@@ -22,7 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.getDeadline
-import me.hirotask.loginformcompose.model.domain.Todo
+import me.hirotask.loginformcompose.domain.domainobject.Todo
 import me.hirotask.loginformcompose.ui.components.DrawerContent
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel

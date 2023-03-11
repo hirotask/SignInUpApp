@@ -1,35 +1,13 @@
-package me.hirotask.loginformcompose.model.repository
+package me.hirotask.loginformcompose.data.repository
 
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import me.hirotask.loginformcompose.model.domain.Todo
-import me.hirotask.loginformcompose.model.domain.toMap
-import me.hirotask.loginformcompose.model.domain.toTodo
+import me.hirotask.loginformcompose.domain.domainobject.Todo
+import me.hirotask.loginformcompose.domain.domainobject.toMap
+import me.hirotask.loginformcompose.domain.domainobject.toTodo
+import me.hirotask.loginformcompose.domain.repository.FirestoreRepository
 import javax.inject.Inject
-
-interface FirestoreRepository {
-    suspend fun addTodo(
-        userUUID: String,
-        todo: Todo
-    ): Boolean
-
-    suspend fun fetchTodo(
-        userUUID: String,
-        onSuccess: (List<Todo>) -> Unit = {},
-        onFailure: (List<Todo>) -> Unit = {}
-    ): Task<QuerySnapshot>
-
-    suspend fun completeTodo(
-        userUUID: String,
-        id: String,
-        onSuccess: () -> Unit = {},
-        onFailure: () -> Unit = {}
-    ): Task<Void>
-}
-
 
 class FirestoreRepositoryImpl @Inject constructor(
     private val database: FirebaseFirestore

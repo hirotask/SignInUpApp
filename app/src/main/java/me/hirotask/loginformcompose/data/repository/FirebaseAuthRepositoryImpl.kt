@@ -1,37 +1,13 @@
-package me.hirotask.loginformcompose.model.repository
+package me.hirotask.loginformcompose.data.repository
 
 import android.content.Context
 import android.widget.Toast
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import me.hirotask.loginformcompose.R
+import me.hirotask.loginformcompose.domain.repository.FirebaseAuthRepository
 import javax.inject.Inject
-
-interface FirebaseAuthRepository {
-    val currentUser: FirebaseUser?
-
-    suspend fun signIn(
-        email: String,
-        password: String,
-        context: Context,
-        onSuccess: () -> Unit = {},
-        onFailure: () -> Unit = {}
-    ): Task<AuthResult>
-
-    suspend fun signUp(
-        email: String,
-        password: String,
-        context: Context,
-        onSuccess: () -> Unit = {},
-        onFailure: () -> Unit = {},
-    ): Task<AuthResult>
-
-    fun signOut(context: Context)
-}
 
 class FirebaseAuthRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth

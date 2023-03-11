@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import me.hirotask.loginformcompose.R
-import me.hirotask.loginformcompose.model.domain.Priority
+import me.hirotask.loginformcompose.domain.domainobject.Priority
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.components.NormalButton
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme

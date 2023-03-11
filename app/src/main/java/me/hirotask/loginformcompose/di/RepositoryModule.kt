@@ -8,10 +8,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepository
-import me.hirotask.loginformcompose.model.repository.FirebaseAuthRepositoryImpl
-import me.hirotask.loginformcompose.model.repository.FirestoreRepository
-import me.hirotask.loginformcompose.model.repository.FirestoreRepositoryImpl
+import me.hirotask.loginformcompose.data.repository.FirebaseAuthRepositoryImpl
+import me.hirotask.loginformcompose.data.repository.FirestoreRepositoryImpl
+import me.hirotask.loginformcompose.domain.repository.FirebaseAuthRepository
+import me.hirotask.loginformcompose.domain.repository.FirestoreRepository
 import javax.inject.Singleton
 
 @Module

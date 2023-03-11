@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.model.domain
+package me.hirotask.loginformcompose.domain.domainobject
 
 data class UserState(
     val email: String = "",

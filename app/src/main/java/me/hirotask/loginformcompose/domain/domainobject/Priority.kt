@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.model.domain
+package me.hirotask.loginformcompose.domain.domainobject
 
 enum class Priority(val jpPriority: String) {
     HIGHEST("最高"),

@@ -1,4 +1,4 @@
-package me.hirotask.loginformcompose.model.domain
+package me.hirotask.loginformcompose.domain.domainobject
 
 import com.google.firebase.Timestamp
 import java.util.*
