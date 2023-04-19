@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import me.hirotask.loginformcompose.domain.domainobject.Settings
 import me.hirotask.loginformcompose.util.PreferenceService
 
+//@HiltViewModel
 class SettingsViewModel(val preference: PreferenceService): ViewModel() {
     private val _settings = MutableStateFlow(
         Settings(

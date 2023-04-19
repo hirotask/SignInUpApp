@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.ui.components.EmailTextField
 import me.hirotask.loginformcompose.ui.components.NormalButton
@@ -25,7 +25,7 @@ import me.hirotask.loginformcompose.ui.viewmodel.AuthViewModel
 fun LoginScreen(
     onPreviousHandler: () -> Unit = {},
     onSignInHandler: () -> Unit = {},
-    authViewModel: AuthViewModel = viewModel()
+    authViewModel: AuthViewModel = hiltViewModel()
 ) {
     val loading by authViewModel.loadingState.collectAsState()
     var email by remember { mutableStateOf("") }

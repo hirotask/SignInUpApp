@@ -14,7 +14,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import me.hirotask.loginformcompose.ui.*
+import me.hirotask.loginformcompose.ui.components.AppModalDrawer
 
 @Composable
 fun TodoNavGraph(
@@ -55,36 +57,51 @@ fun TodoNavGraph(
         }
 
         composable(Destinations.Todo.destination) {
-            TodoScreen(
-                toLogin = {
-                    navActions.navigateToLogin()
-                },
-                toSetting = {
-                    navActions.navigateToSettings()
-                },
-                toAdd = {
-                    navActions.navigateToTodoAdd()
-                }
-            )
+            AppModalDrawer(drawerState = drawerState, currentRoute = currentRoute , navigationActions = navActions) {
+                TodoScreen(
+                    toAdd = {
+                        navActions.navigateToTodoAdd()
+                    },
+                    openDrawer = {
+                        coroutineScope.launch {
+                            drawerState.open()
+                        }
+                    }
+                )
+            }
         }
 
         composable(Destinations.TodoAdd.destination) {
-            TodoAddScreen(
-                toTodo = {
-                    navActions.navigateToTodo()
-                }
-            )
+            AppModalDrawer(drawerState = drawerState, currentRoute = currentRoute , navigationActions = navActions) {
+                TodoAddScreen(
+                    toTodo = {
+                        navActions.navigateToTodo()
+                    },
+                    openDrawer = {
+                        coroutineScope.launch {
+                            drawerState.open()
+                        }
+                    }
+                )
+            }
         }
 
         composable(Destinations.Settings.destination) {
-            SettingsScreen(
-                toTodo = {
-                    navActions.navigateToTodo()
-                },
-                toLogin = {
-                    navActions.navigateToLogin()
-                }
-            )
+            AppModalDrawer(drawerState = drawerState, currentRoute = currentRoute , navigationActions = navActions) {
+                SettingsScreen(
+                    toTodo = {
+                        navActions.navigateToTodo()
+                    },
+                    toLogin = {
+                        navActions.navigateToLogin()
+                    },
+                    openDrawer = {
+                        coroutineScope.launch {
+                            drawerState.open()
+                        }
+                    }
+                )
+            }
         }
 
     }
