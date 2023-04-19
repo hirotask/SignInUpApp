@@ -115,7 +115,7 @@ private fun DrawerHeader(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.White)
+            .background(Color.LightGray)
             .height(dimensionResource(id = R.dimen.header_height))
             .padding(dimensionResource(id = R.dimen.header_padding))
     ) {
