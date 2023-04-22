@@ -9,7 +9,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.runtime.*
@@ -23,11 +22,12 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import me.hirotask.loginformcompose.R
 import me.hirotask.loginformcompose.domain.domainobject.Priority
 import me.hirotask.loginformcompose.toDate
 import me.hirotask.loginformcompose.ui.components.NormalButton
+import me.hirotask.loginformcompose.ui.components.TasksTopAppBar
 import me.hirotask.loginformcompose.ui.theme.LoginFormComposeTheme
 import me.hirotask.loginformcompose.ui.viewmodel.TodoViewModel
 import java.util.*
@@ -36,8 +36,8 @@ import java.util.*
 @Composable
 fun TodoAddScreen(
     toTodo: () -> Unit = {},
-    onAddTodo: () -> Unit = {},
-    todoViewModel: TodoViewModel = viewModel()
+    openDrawer: () -> Unit,
+    todoViewModel: TodoViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val calendar = Calendar.getInstance()
@@ -68,17 +68,8 @@ fun TodoAddScreen(
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(id = R.string.add_todo)) },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            toTodo()
-                        },
-                    ) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "back icon")
-                    }
-                }
+            TasksTopAppBar(
+                openDrawer = openDrawer
             )
         },
     ) {
@@ -202,7 +193,7 @@ fun TodoAddScreen(
                         limit = date.toDate()!!,
                         memo = memo
                     )
-                    onAddTodo()
+                    toTodo()
                 },
                 text = R.string.add
             )
@@ -215,6 +206,6 @@ fun TodoAddScreen(
 @Composable
 fun TodoAddPagePreview() {
     LoginFormComposeTheme {
-        TodoAddScreen()
+        TodoAddScreen({}, {})
     }
 }

@@ -2,6 +2,9 @@
     <string name="app_name">TodoMobileApp</string>
     <string name="client_id">59093459737-0vbuet34bcq5js42pdhraus1gto4ikvh.apps.googleusercontent.com</string>
 
+    <!-- Drawer -->
+    <string name="tasks_header_image_content_description">This is Modal Drawer Header</string>
+
     <!-- 共通用語 -->
     <string name="email">メールアドレス</string>
     <string name="password">パスワード</string>

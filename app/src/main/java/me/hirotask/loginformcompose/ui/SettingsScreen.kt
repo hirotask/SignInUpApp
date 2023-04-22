@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,13 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import kotlinx.coroutines.launch
-import me.hirotask.loginformcompose.R
-import me.hirotask.loginformcompose.ui.components.DrawerContent
+import androidx.hilt.navigation.compose.hiltViewModel
+import me.hirotask.loginformcompose.ui.components.TasksTopAppBar
 import me.hirotask.loginformcompose.ui.viewmodel.SettingsViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -29,7 +24,8 @@ import me.hirotask.loginformcompose.ui.viewmodel.SettingsViewModel
 fun SettingsScreen(
     toTodo: () -> Unit,
     toLogin: () -> Unit,
-    settingsViewModel: SettingsViewModel = viewModel()
+    openDrawer: () -> Unit,
+    settingsViewModel: SettingsViewModel = hiltViewModel()
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -38,34 +34,9 @@ fun SettingsScreen(
 
     Scaffold(
         scaffoldState = scaffoldState,
-        drawerContent = {
-            DrawerContent(
-                scaffoldState = scaffoldState,
-                TodoAction = {
-                    toTodo()
-                },
-                LogoutAction = {
-                    toLogin()
-                }
-            )
-        },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(id = R.string.settings)) },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            scope.launch {
-                                scaffoldState.drawerState.apply {
-                                    if (isClosed) open() else close()
-                                }
-                            }
-                        },
-                    ) {
-                        Icon(Icons.Default.Menu, contentDescription = "Menu icon")
-                    }
-
-                }
+            TasksTopAppBar(
+                openDrawer = openDrawer
             )
         },
     ) {
